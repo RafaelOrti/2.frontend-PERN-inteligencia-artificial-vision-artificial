@@ -1,0 +1,36 @@
+
+.designHeader {
+    height: 15em;
+
+    background-color: darkblue;
+
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerSpace {
+    width: 33vw;
+    height: 15em;
+
+}
+
+.linksDesign {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.link {
+    margin-right: 3em;
+    margin-bottom: 1em;
+}
+
+.link:hover {
+    font-weight: bold;
+    cursor:pointer;
+}

@@ -4,8 +4,8 @@ import './Footer.css';
 
 const Footer = () => {
     return (
-        <div>
-            soy Footer
+        <div className="designFooter">
+            GeeksHubs Academy - 2022
         </div>
     )
 }
