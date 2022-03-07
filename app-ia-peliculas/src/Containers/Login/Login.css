@@ -1,0 +1,29 @@
+
+.designLogin {
+
+    background-color: beige;
+    
+    height: 26.1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginButton {
+    width: 9em;
+    height: 3em;
+
+    color: white;
+
+    transition: 0.3s;
+    background-color: green;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 2em;
+}
+

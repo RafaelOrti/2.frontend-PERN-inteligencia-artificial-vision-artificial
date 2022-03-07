@@ -1,15 +1,22 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
 
-
 import './Header.css';
 
 const Header = () => {
 
     let navigate = useNavigate();
 
+    const navegar = (lugar) => {
+
+        setTimeout(()=> {
+            navigate(lugar);
+        }, 200);
+
+    }
+
     return (
-        <div className='designHeader<'>
+        <div className='designHeader'>
             <div className="headerSpace"></div>
             <div className="headerSpace"></div>
             <div className="headerSpace linksDesign">
@@ -18,6 +25,7 @@ const Header = () => {
             </div>
         </div>
     )
+
 }
 
 export default Header;

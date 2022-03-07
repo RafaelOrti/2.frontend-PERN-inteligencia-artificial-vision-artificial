@@ -4,8 +4,8 @@ import './Home.css';
 
 const Home = () => {
     return (
-        <div>
-            soy Home
+        <div className='designHome'>
+            HOME
         </div>
     )
 }
