@@ -43,7 +43,7 @@ const Login = (props) => {
 
             let resultado = await axios.post("http://localhost:3000/Usuarios/registro",body);
 
-            
+
             //Cambiamos el valor del hook credenciales, por lo tanto se recargará el componente
             console.log(resultado)
             if(resultado.data === "Usuario o contraseña inválido"){
@@ -52,6 +52,7 @@ const Login = (props) => {
 
                 //Guardamos los datos en redux...
 
+                
                 // props.dispatch({type:LOGIN, payload: resultado.data});
 
 
