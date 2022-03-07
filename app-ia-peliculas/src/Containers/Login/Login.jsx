@@ -41,24 +41,25 @@ const Login = (props) => {
                  password: datosUsuario.password
             }
 
-            let resultado = await axios.post("http://localhost:3000/Usuarios/registro",body);
+            let resultado = await axios.post("http://localhost:3000/Usuarios/login",body);
 
 
             //Cambiamos el valor del hook credenciales, por lo tanto se recargará el componente
-            console.log(resultado)
+            // console.log(resultado)
             if(resultado.data === "Usuario o contraseña inválido"){
                 setMsgError2("Usuario o contraseña inválido")
             }else{
 
                 //Guardamos los datos en redux...
 
-                
+
                 // props.dispatch({type:LOGIN, payload: resultado.data});
 
 
-                setTimeout(()=>{
-                    navigate("/");
-                },1500);
+                // setTimeout(()=>{
+                //     navigate("/");
+                // },1500);
+                console.log(resultado.data)
             }
 
 
