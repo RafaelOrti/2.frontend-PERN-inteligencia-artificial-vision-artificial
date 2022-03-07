@@ -19,8 +19,6 @@ const Login = (props) => {
     const [msgError, setMsgError] = useState("");
     const [msgError2, setMsgError2] = useState("");
 
-
-
     //Funciones handlers
     const rellenarDatos = (e) => {
         //Funcion handler que setea los datos en el hook...[e.target.name] obtiene 
@@ -53,13 +51,13 @@ const Login = (props) => {
                 //Guardamos los datos en redux...
 
 
-                // props.dispatch({type:LOGIN, payload: resultado.data});
+                props.dispatch({type:LOGIN, payload: resultado.data});
 
 
-                // setTimeout(()=>{
-                //     navigate("/");
-                // },1500);
-                console.log(resultado.data)
+                setTimeout(()=>{
+                    navigate("/");
+                },1500);
+
             }
 
 

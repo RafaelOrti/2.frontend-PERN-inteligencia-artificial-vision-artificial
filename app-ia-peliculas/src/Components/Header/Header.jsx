@@ -28,4 +28,6 @@ const Header = () => {
 
 }
 
-export default Header;
+export default connect((state)=>({
+    credentials: state.credentials
+}))(Header);
