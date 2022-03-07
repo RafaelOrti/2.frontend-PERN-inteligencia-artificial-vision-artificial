@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 //REDUX...
-// import { connect } from 'react-redux';
-// import { LOGIN } from '../../redux/types';
+import { connect } from 'react-redux';
+import { LOGIN } from '../../redux/types';
 
 
 import './Login.css';
@@ -91,4 +91,4 @@ const Login = (props) => {
 };
 
 
-export default Login;
+export default connect()(Login);
