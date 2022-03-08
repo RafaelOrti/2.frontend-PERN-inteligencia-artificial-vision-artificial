@@ -46,6 +46,7 @@ const Login = (props) => {
             // console.log(resultado)
             if(resultado.data === "Usuario o contraseña inválido"){
                 setMsgError2("Usuario o contraseña inválido")
+                
             }else{
 
                 //Guardamos los datos en redux...
