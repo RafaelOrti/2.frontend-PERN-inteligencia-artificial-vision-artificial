@@ -2,6 +2,8 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import {raiz} from '../../utiles';
+
 
 //REDUX...
 import { connect } from 'react-redux';
@@ -39,7 +41,7 @@ const Login = (props) => {
                  password: datosUsuario.password
             }
 
-            let resultado = await axios.post("http://localhost:3000/Usuarios/login",body);
+            let resultado = await axios.post(raiz+"Usuarios/login",body);
 
 
             //Cambiamos el valor del hook credenciales, por lo tanto se recargará el componente
