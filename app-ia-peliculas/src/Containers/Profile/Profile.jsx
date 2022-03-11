@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {MODIFY_CREDENTIALS} from '../../redux/types';
 import axios from 'axios';
+import {raiz} from '../../utiles';
+
+
 
 import "./Profile.css";
 
@@ -47,7 +50,7 @@ const Profile = (props) => {
 
         try {
             //Hacemos el update en la base de datos
-            let res = await axios.put(`http://localhost:3000/Usuarios/actualizar/perfilId/${props.credentials.usuario.id}`,body, config);
+            let res = await axios.put(raiz+`Usuarios/actualizar/perfilId/${props.credentials.usuario.id}`,body, config);
 
             
             

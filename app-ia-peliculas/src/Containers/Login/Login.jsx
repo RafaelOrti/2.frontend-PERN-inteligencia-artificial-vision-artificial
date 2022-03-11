@@ -58,7 +58,7 @@ const Login = (props) => {
 
 
                 setTimeout(()=>{
-                    navigate("/");
+                    navigate("/film");
                 },1500);
 
             }

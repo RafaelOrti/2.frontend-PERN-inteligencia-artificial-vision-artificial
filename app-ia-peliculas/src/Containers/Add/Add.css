@@ -1,0 +1,23 @@
+
+.designAdd {
+
+    background-color: beige;
+    
+    height: 26.1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.designRooster {
+    display: flex;
+    flex-wrap: wrap;
+
+
+}
+
+.designRooster>*{
+    flex-basis: 25%;
+}
