@@ -28,6 +28,8 @@ function App() {
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/film" element={<Film/>}/>
           <Route path="/add" element={<Add/>}/>
+          <Route path="/moviedetail" element={<MovieDetail/>}/>
+
         
         
 

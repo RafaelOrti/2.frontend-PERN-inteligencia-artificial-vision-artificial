@@ -1,0 +1,28 @@
+
+
+.designFilm {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+    background-color: beige;
+    height: 26.1em;
+    width: 100vw;
+}
+
+
+.filmDetailHalf {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 50vw;
+
+    
+
+}
