@@ -31,12 +31,12 @@ const Film = (props) => {
 
         try {
 
-            let res = await axios.get("https://lug-movie-club.herokuapp.com/movie-db/new");
+            let res = await axios.get("http://localhost:3000/peliculas/");
 
             //Una vez han venido los datos del backend, nosotros, lo siguiente que haremos para que no se pierdan
             //será setear esos datos en el hook, haciendo que las peliculas estén disponibles 
             //para los return del componente.
-
+            console.log("gggggggggggg"+res)
             setTimeout(()=>{
 
                 setFilm(res.data.results);
@@ -58,7 +58,7 @@ const Film = (props) => {
         navigate("/moviedetail");
     }
  
-    if(Film[0]?.id != undefined){
+    if(Film[0]?.id !== undefined){
         return(
             <div className="designRooster">
 
@@ -73,7 +73,7 @@ const Film = (props) => {
                             //si le hacemos propiedad onclick y pasamos el elemento como argumento,
                             //a esa funcion le va a llegar el objeto que hayamos clickado entero
                             <div key={pelicula.id} onClick={()=>escogePelicula(pelicula)}>
-                                <img src={raiz + pelicula.poster_path} alt={pelicula.title}/>
+                                <img src={"https://image.tmdb.org/t/p/w185" + pelicula.poster_path} alt={pelicula.title}/>
                             </div>
                         )
                     })

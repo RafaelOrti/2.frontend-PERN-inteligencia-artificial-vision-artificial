@@ -11,6 +11,7 @@ import Register from './Containers/Register/Register';
 import Profile from './Containers/Profile/Profile';
 import Film from './Containers/Film/Film';
 import Add from './Containers/Add/Add';
+import MovieDetail from './Containers/MovieDetail/MovieDetail';
 
 function App() {
   return (
