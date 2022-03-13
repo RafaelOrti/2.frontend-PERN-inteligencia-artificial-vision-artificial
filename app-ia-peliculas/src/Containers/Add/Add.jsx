@@ -2,15 +2,18 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { connect } from 'react-redux';
 import { MOVIE_DETAIL } from '../../redux/types';
+import { connect } from 'react-redux';
 import {raiz} from '../../utiles';
 import './Add.css';
+import { Card } from 'antd';
+import 'antd/dist/antd.css';
 
 const Add = (props) => {
 
-    const [films, setFilms] = useState([]);
+    const [Adds, setAdds] = useState([]);
     let navigate = useNavigate();
+    const { Meta } = Card;
 
     useEffect(()=>{
         //No es correcto realizar el try catch en el useEffect
@@ -21,25 +24,30 @@ const Add = (props) => {
         traePelis();
     },[]);
 
-    //useEffect custom para el hook films
+    //useEffect custom para el hook Adds
 
     useEffect(()=>{
-        console.log("vaya, , films ha cambiado, ", films);
-    },[films]);
+        console.log("vaya, , Adds ha cambiado, ", Adds);
+    },[Adds]);
 
     const traePelis = async () => {
+        
+        // const token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoxLCJub21icmUiOiJQYWNvIiwiYXBlbGxpZG8iOiJNYXJ0aW5leiIsIm5pY2tuYW1lIjoiaG9sYSIsImVkYWQiOjIyLCJlbWFpbCI6ImhvbGFAZ21haWwiLCJyb2wiOmZhbHNlLCJwYXNzd29yZCI6IiQyYiQxMCRzWTNaQi96Y2ZWbTRrWFlvbm1YRVcucnlnazZXWXRyenpwNTdtTjN6OW9Cb2hRa0duTEFHYSIsInB1bnRvcyI6MCwicDAiOjAsInAxIjowLCJwMiI6MCwicDMiOjAsInA0IjowLCJwNSI6MCwicDYiOjAsInA3IjowLCJwOCI6MCwicDkiOjAsImxlY3R1cmEiOjAsImNyZWF0ZWRBdCI6IjIwMjItMDMtMDhUMTg6MjI6MTkuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjItMDMtMDhUMTg6MjI6MTkuMDAwWiJ9LCJpYXQiOjE2NDcxMzE2NzIsImV4cCI6MTY0NzMwNDQ3Mn0.vy_I9cNjJ7NvHONSYphAwd0McOcXIri8TIyXYtSE41c";
 
         try {
 
-            let res = await axios.get("https://lug-movie-club.herokuapp.com/movie-db/new");
+            let res = await axios.get(raiz + "peliculas/", { headers: {"Authorization" : `Bearer ${props.credentials?.token}`} });
+            console.log("res")
+            console.log(res)
 
             //Una vez han venido los datos del backend, nosotros, lo siguiente que haremos para que no se pierdan
             //será setear esos datos en el hook, haciendo que las peliculas estén disponibles 
             //para los return del componente.
 
             setTimeout(()=>{
-
-                setFilms(res.data.results);
+                console.log("res2")
+                console.log(res.data)
+                setAdds(res.data);
             },2000);
 
         } catch (error) {
@@ -58,13 +66,15 @@ const Add = (props) => {
         navigate("/moviedetail");
     }
  
-    if(films[0]?.id !== undefined){
+    if(Adds[0]?.id !== undefined){
+        
         return(
             <div className="designRooster">
 
                 {
                     //Voy a mapear las películas
-                    films.map(pelicula => {
+                    Adds.map(pelicula => {
+                        console.log(pelicula.imagen)
                         //a cada elemento que voy a mapear
                         //le brindo un KEY (obligatorio) que lo distinguirá de
                         //el resto de elementos
@@ -72,9 +82,14 @@ const Add = (props) => {
                             //Al mapear, cada elemento que se itera del array (en este caso pelicula es ese elemento),
                             //si le hacemos propiedad onclick y pasamos el elemento como argumento,
                             //a esa funcion le va a llegar el objeto que hayamos clickado entero
-                            <div key={pelicula.id} onClick={()=>escogePelicula(pelicula)}>
-                                <img src={raiz + pelicula.poster_path} alt={pelicula.title}/>
+                            
+
+
+                            <div className="cardPelicula" key={pelicula.id} onClick={()=>escogePelicula(pelicula)}>
+                                <img className="fotoCard" src={pelicula.imagen} alt={pelicula.titulo}/>
+                                <p>{pelicula.titulo}</p>
                             </div>
+                            
                         )
                     })
                 }
@@ -92,4 +107,6 @@ const Add = (props) => {
     }
 }
 
-export default connect()(Add);
+export default connect((state) => ({
+    credentials: state.credentials
+}))(Add);

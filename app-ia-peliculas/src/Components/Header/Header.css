@@ -1,6 +1,6 @@
 
 .designHeader {
-    height: 5em;
+    height: 15em;
 
     background-color: darkblue;
 
@@ -14,7 +14,7 @@
 
 .headerSpace {
     width: 33vw;
-    height: 5em;
+    height: 15em;
 
 }
 
@@ -33,4 +33,15 @@
 .link:hover {
     font-weight: bold;
     cursor:pointer;
+}
+
+.searchDesign {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.relleno {
+    height: 1em;
 }

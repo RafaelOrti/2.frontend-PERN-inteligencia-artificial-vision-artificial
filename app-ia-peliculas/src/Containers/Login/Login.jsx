@@ -1,9 +1,8 @@
 
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import {raiz} from '../../utiles';
-
+import axios from 'axios';
 
 //REDUX...
 import { connect } from 'react-redux';
@@ -13,13 +12,15 @@ import { LOGIN } from '../../redux/types';
 import './Login.css';
 
 const Login = (props) => {
-
+    
     let navigate = useNavigate();
 
     //1-Hooks (equivalen al estado en los componentes de clase)
     const [datosUsuario, setDatosUsuario] = useState({email: "", password: ""});
     const [msgError, setMsgError] = useState("");
     const [msgError2, setMsgError2] = useState("");
+
+
 
     //Funciones handlers
     const rellenarDatos = (e) => {
@@ -34,25 +35,21 @@ const Login = (props) => {
     const login = async () => {
 
         try {
-
+            
             //Me invento las credenciales
             let body = {
                  email: datosUsuario.email,
                  password: datosUsuario.password
             }
 
-            let resultado = await axios.post(raiz+"Usuarios/login",body);
-
-
+            let resultado = await axios.post(raiz +"usuarios/login",body);
+            console.log(resultado)
             //Cambiamos el valor del hook credenciales, por lo tanto se recargará el componente
-            // console.log(resultado)
             if(resultado.data === "Usuario o contraseña inválido"){
                 setMsgError2("Usuario o contraseña inválido")
-                
             }else{
 
-                //Guardamos los datos en redux...
-
+                //Guardaríamos los datos en redux...
 
                 props.dispatch({type:LOGIN, payload: resultado.data});
 
@@ -60,7 +57,6 @@ const Login = (props) => {
                 setTimeout(()=>{
                     navigate("/film");
                 },1500);
-
             }
 
 

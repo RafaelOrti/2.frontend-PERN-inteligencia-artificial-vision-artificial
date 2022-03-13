@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+
 import './App.css';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
@@ -9,9 +9,10 @@ import Home from './Containers/Home/Home';
 import Login from './Containers/Login/Login';
 import Register from './Containers/Register/Register';
 import Profile from './Containers/Profile/Profile';
+import MovieDetail from './Containers/MovieDetail/MovieDetail';
+import SearchResults from './Containers/SearchResults/SearchResults';
 import Film from './Containers/Film/Film';
 import Add from './Containers/Add/Add';
-import MovieDetail from './Containers/MovieDetail/MovieDetail';
 
 function App() {
   return (
@@ -22,23 +23,18 @@ function App() {
         <Header/>
 
         <Routes>
-
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path="/moviedetail" element={<MovieDetail/>}/>
+          <Route path="/searchresults" element={<SearchResults/>}/>
           <Route path="/film" element={<Film/>}/>
           <Route path="/add" element={<Add/>}/>
-          <Route path="/moviedetail" element={<MovieDetail/>}/>
-
-        
-        
 
         </Routes>
-          
-        
 
-        <Footer/> 
+        <Footer/>
       
       </BrowserRouter>
       

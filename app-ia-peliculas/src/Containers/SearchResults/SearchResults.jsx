@@ -5,68 +5,61 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { MOVIE_DETAIL } from '../../redux/types';
 import {raiz} from '../../utiles';
-import './Home.css';
-import { Card } from 'antd';
-import 'antd/dist/antd.css';
+import './SearchResults.css';
 
-const Home = (props) => {
+const SearchResults = (props) => {
 
-    const [films, setFilms] = useState([]);
+    // const [films, setFilms] = useState([]);
     let navigate = useNavigate();
-    const { Meta } = Card;
 
     useEffect(()=>{
-        //No es correcto realizar el try catch en el useEffect
-        //dado que el useEffect es en si un proceso con un callback, meter un proceso
-        //asíncrono traería problemas y React no lo permite, por ello, llamamos a una funcion
-        //que habremos hecho nosotros y se encargará de ello
-
-        traePelis();
+        console.log(props.films);
     },[]);
 
     //useEffect custom para el hook films
 
-    useEffect(()=>{
-        console.log("vaya, , films ha cambiado, ", films);
-    },[films]);
+    // useEffect(()=>{
+    //     console.log("vaya, , films ha cambiado, ", props.films);
+    // },[props.films]);
 
-    const traePelis = async () => {
+    // const traePelis = async () => {
 
-        try {
+    //     try {
 
-            let res = await axios.get("https://lug-movie-club.herokuapp.com/movie-db/new");
+    //         let res = await axios.get("https://lug-movie-club.herokuapp.com/movie-db/new");
 
-            //Una vez han venido los datos del backend, nosotros, lo siguiente que haremos para que no se pierdan
-            //será setear esos datos en el hook, haciendo que las peliculas estén disponibles 
-            //para los return del componente.
+    //         //Una vez han venido los datos del backend, nosotros, lo siguiente que haremos para que no se pierdan
+    //         //será setear esos datos en el hook, haciendo que las peliculas estén disponibles 
+    //         //para los return del componente.
 
-            setTimeout(()=>{
+    //         setTimeout(()=>{
 
-                setFilms(res.data.results);
-            },2000);
+    //             setFilms(res.data.results);
+    //         },2000);
 
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
     const escogePelicula = (pelicula) => {
         
-        console.log(pelicula);
+        console.log(pelicula, "he escogido esta....");
         //Guardamos la pelicula escogida en redux
         props.dispatch({type:MOVIE_DETAIL, payload: pelicula});
+
 
         //Redirigimos a movieDetail con navigate
         navigate("/moviedetail");
     }
  
-    if(films[0]?.id !== undefined){
+    if(props.films[0]?.id !== undefined){
         return(
             <div className="designRooster">
 
                 {
                     //Voy a mapear las películas
-                    films.map(pelicula => {
+                    props.films.map(pelicula => {
                         //a cada elemento que voy a mapear
                         //le brindo un KEY (obligatorio) que lo distinguirá de
                         //el resto de elementos
@@ -74,14 +67,9 @@ const Home = (props) => {
                             //Al mapear, cada elemento que se itera del array (en este caso pelicula es ese elemento),
                             //si le hacemos propiedad onclick y pasamos el elemento como argumento,
                             //a esa funcion le va a llegar el objeto que hayamos clickado entero
-                            
-
-
-                            <div className="cardPelicula" key={pelicula.id} onClick={()=>escogePelicula(pelicula)}>
-                                <img className="fotoCard" src={raiz + pelicula.poster_path} alt={pelicula.title}/>
-                                <p>{pelicula.overview}</p>
+                            <div key={pelicula.id} onClick={()=>escogePelicula(pelicula)}>
+                                <img className='cartel' src={pelicula.image} alt={pelicula.title}/>
                             </div>
-                            
                         )
                     })
                 }
@@ -99,4 +87,7 @@ const Home = (props) => {
     }
 }
 
-export default connect()(Home);
+export default connect((state) => ({
+    //Este films que se invocará mediante props.films valdrá lo que vale en redux peliculas
+    films: state.search.peliculas
+}))(SearchResults);

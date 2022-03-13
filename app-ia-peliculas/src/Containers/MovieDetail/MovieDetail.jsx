@@ -17,7 +17,7 @@ const MovieDetail = (props) => {
         //Compruebo si hay datos de la película escogida en redux, en caso de NO
         //haber datos, redirijo a HOME.
 
-        if(props.search?.original_title === undefined){
+        if(props.search?.title === undefined){
             navigate("/");
         }
     });
@@ -25,8 +25,8 @@ const MovieDetail = (props) => {
         return(
             <div className='designFilm'>
                 <div className="filmDetailHalf">
-                    <div className="dataFilm">{props.search.original_title}</div>
-                    <div className="dataFilm">{props.search.overview}</div>
+                    <div className="dataFilm">{props.search?.title}</div>
+                    <div className="dataFilm">{props.search?.synopsis}</div>
                     <div className="dataFilm">
                         {
                             //EN CASO DE QUE TOKEN SEA TRUE, SI SE INCLUYE EL ELEMENTO RENT
@@ -35,7 +35,7 @@ const MovieDetail = (props) => {
                     </div>
                 </div>
                 <div className="filmDetailHalf">
-                    <img src={raiz + props.search.poster_path} alt={props.search.original_title}/></div>    
+                    <img className="cartel" src={raiz + props.search.image} alt={props.search.title}/></div>    
             </div>
         )
    
@@ -43,6 +43,6 @@ const MovieDetail = (props) => {
 
 export default connect((state) => ({
     credentials: state.credentials,
-    search : state.search
+    search : state.search.film
 }))(MovieDetail);
 

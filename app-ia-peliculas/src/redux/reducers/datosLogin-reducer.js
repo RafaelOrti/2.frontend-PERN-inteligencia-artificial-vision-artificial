@@ -15,15 +15,13 @@ const datosLoginReducer = (state = initialState, action) => {
         case LOGOUT : 
             return initialState;
         //MODIFICAMOS LOS DATOS QUE TENEMOS GUARDADOS EN ESTE ESTADO CON LOS VALORES QUE METAMOS POR INPUT EN Perfil.js
-
+        
         case MODIFY_CREDENTIALS :
             return {...state, usuario: action.payload};
 
-        
         default :
             return state
     }
 }
-
 
 export default datosLoginReducer;
