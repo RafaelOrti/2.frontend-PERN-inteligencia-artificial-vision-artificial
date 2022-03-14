@@ -83,12 +83,16 @@ const Add = (props) => {
                             //si le hacemos propiedad onclick y pasamos el elemento como argumento,
                             //a esa funcion le va a llegar el objeto que hayamos clickado entero
                             
-
-
-                            <div className="cardPelicula" key={pelicula.id} onClick={()=>escogePelicula(pelicula)}>
-                                <img className="fotoCard" src={pelicula.imagen} alt={pelicula.titulo}/>
-                                <p>{pelicula.titulo}</p>
-                            </div>
+                           
+                                pelicula.anuncio===true &&
+                                <div className="cardPelicula" key={pelicula.id} onClick={()=>escogePelicula(pelicula)}>
+                                    <img className="fotoCard" src={pelicula.imagen} alt={pelicula.titulo}/>
+                                    <p>{pelicula.titulo}</p>
+                                </div>
+                                
+                            
+                               
+                    
                             
                         )
                     })

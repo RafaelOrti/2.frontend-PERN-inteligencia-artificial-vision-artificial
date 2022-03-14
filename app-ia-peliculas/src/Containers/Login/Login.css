@@ -1,9 +1,11 @@
 
 .designLogin {
 
-    background-color: beige;
-    
-    height: 26.1em;
+    background-color: rgb(245, 245, 94);
+    width: 100vw;
+    height: 100vh;
+
+
 
     display: flex;
     flex-direction: column;

@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import { connect } from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import Rent from '../../Components/Rent/Rent';
-import {raiz} from '../../utiles';
+// import {raiz} from '../../utiles';
 
 import './MovieDetail.css';
 
@@ -11,13 +11,20 @@ const MovieDetail = (props) => {
 
     let navigate = useNavigate();
     
+    const navegar = (lugar) => {
+
+        setTimeout(() => {
+            navigate(lugar);
+        }, 200);
+
+    }
 
 
     useEffect(()=> {
         //Compruebo si hay datos de la película escogida en redux, en caso de NO
         //haber datos, redirijo a HOME.
-
-        if(props.search?.title === undefined){
+        
+        if(props.search?.titulo === undefined){
             navigate("/");
         }
     });
@@ -27,15 +34,11 @@ const MovieDetail = (props) => {
                 <div className="filmDetailHalf">
                     <div className="dataFilm">{props.search?.title}</div>
                     <div className="dataFilm">{props.search?.synopsis}</div>
-                    <div className="dataFilm">
-                        {
-                            //EN CASO DE QUE TOKEN SEA TRUE, SI SE INCLUYE EL ELEMENTO RENT
-                            props.credentials.token && <Rent id={props.search.id} token={props.credentials.token} idUser={props.credentials.usuario.id}/>
-                        }
-                    </div>
+                    <div className="link" onClick={() => navegar("/display")}>Ver</div>
+                    
                 </div>
                 <div className="filmDetailHalf">
-                    <img className="cartel" src={raiz + props.search.image} alt={props.search.title}/></div>    
+                    <img className="cartel" src={props.search.imagen} alt={props.search.titulo}/></div>    
             </div>
         )
    

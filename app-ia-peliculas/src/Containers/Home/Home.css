@@ -1,9 +1,11 @@
 
 .designHome {
 
-    background-color: beige;
-    
-    height: 26.1em;
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+
+
 
     display: flex;
     flex-direction: column;
@@ -54,4 +56,10 @@
 .fotoCard {
     margin: .2em;
     box-sizing: border-box;
+}
+
+.fondo{
+    width: 100%;
+    height: 100%;
+    position:relative;
 }

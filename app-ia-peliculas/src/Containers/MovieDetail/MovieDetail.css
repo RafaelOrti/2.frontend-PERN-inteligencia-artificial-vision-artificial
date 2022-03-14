@@ -8,9 +8,9 @@
     align-items: center;
 
 
-    background-color: beige;
-    height: 26.1em;
+    background-color: rgb(245, 245, 94);
     width: 100vw;
+    height: 100vh;
 }
 
 
@@ -25,4 +25,16 @@
 
     
 
+}
+
+
+
+.link {
+    margin-right: 3em;
+    margin-bottom: 1em;
+}
+
+.link:hover {
+    font-weight: bold;
+    cursor:pointer;
 }

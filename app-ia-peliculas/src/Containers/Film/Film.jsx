@@ -69,31 +69,37 @@ const Film = (props) => {
     if(films[0]?.id !== undefined){
         
         return(
-            <div className="designRooster">
+            <div className='designFilm'>
+                <div className="designRooster">
 
-                {
-                    //Voy a mapear las películas
-                    films.map(pelicula => {
-                        console.log(pelicula.imagen)
-                        //a cada elemento que voy a mapear
-                        //le brindo un KEY (obligatorio) que lo distinguirá de
-                        //el resto de elementos
-                        return (
-                            //Al mapear, cada elemento que se itera del array (en este caso pelicula es ese elemento),
-                            //si le hacemos propiedad onclick y pasamos el elemento como argumento,
-                            //a esa funcion le va a llegar el objeto que hayamos clickado entero
+                    {
+                        //Voy a mapear las películas
+                        films.map(pelicula => {
+                            console.log(pelicula.imagen)
+                            console.log(pelicula.anuncio)
+                            //a cada elemento que voy a mapear
+                            //le brindo un KEY (obligatorio) que lo distinguirá de
+                            //el resto de elementos
                             
+                                return (
+                                    //Al mapear, cada elemento que se itera del array (en este caso pelicula es ese elemento),
+                                    //si le hacemos propiedad onclick y pasamos el elemento como argumento,
+                                    //a esa funcion le va a llegar el objeto que hayamos clickado entero
+                                    
 
-
-                            <div className="cardPelicula" key={pelicula.id} onClick={()=>escogePelicula(pelicula)}>
-                                <img className="fotoCard" src={pelicula.imagen} alt={pelicula.titulo}/>
-                                <p>{pelicula.titulo}</p>
-                            </div>
+                                    pelicula.anuncio===false &&
+                                    <div className="cardPelicula" key={pelicula.id} onClick={()=>escogePelicula(pelicula)}>
+                                        <img className="fotoCard" src={pelicula.imagen} alt={pelicula.titulo}/>
+                                        <p>{pelicula.titulo}</p>
+                                    </div>
+                                    
+                                )
                             
-                        )
-                    })
-                }
-                
+                            
+                        })
+                    }
+                    
+                </div>
             </div>
         )
     }else{

@@ -13,6 +13,7 @@ import MovieDetail from './Containers/MovieDetail/MovieDetail';
 import SearchResults from './Containers/SearchResults/SearchResults';
 import Film from './Containers/Film/Film';
 import Add from './Containers/Add/Add';
+import Display from './Containers/Display/Display';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/searchresults" element={<SearchResults/>}/>
           <Route path="/film" element={<Film/>}/>
           <Route path="/add" element={<Add/>}/>
+          <Route path="/display" element={<Display/>}/>
 
         </Routes>
 

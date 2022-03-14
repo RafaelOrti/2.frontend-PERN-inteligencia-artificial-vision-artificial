@@ -1,8 +1,10 @@
 
 .designHeader {
-    height: 15em;
-
-    background-color: darkblue;
+    height: 5em;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    background-color: transparent;
 
     color: white;
 
@@ -13,8 +15,8 @@
 }
 
 .headerSpace {
-    width: 33vw;
-    height: 15em;
+    width: 32vw;
+    height: 5em;
 
 }
 
@@ -45,3 +47,20 @@
 .relleno {
     height: 1em;
 }
+
+.logoDesign{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.logo{
+    height: 4em;
+    width: 9em;
+}
+
+.logo:hover { 
+    cursor: pointer; 
+}
+
