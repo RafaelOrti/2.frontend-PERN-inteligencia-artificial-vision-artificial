@@ -1,4 +1,4 @@
-import {LOGIN, LOGOUT, MODIFY_CREDENTIALS} from '../types';
+import {LOGIN, LOGOUT, MODIFY_CREDENTIALS} from '../actions';
 
 const initialState = {
     token : '',
@@ -17,7 +17,13 @@ const datosLoginReducer = (state = initialState, action) => {
         //MODIFICAMOS LOS DATOS QUE TENEMOS GUARDADOS EN ESTE ESTADO CON LOS VALORES QUE METAMOS POR INPUT EN Perfil.js
         
         case MODIFY_CREDENTIALS :
-            return {...state, usuario: action.payload};
+            return {
+                ...state,
+                usuario: {
+                    ...state.usuario,
+                    [action.payload.field]: action.payload.field_value
+                }
+            };
 
         default :
             return state

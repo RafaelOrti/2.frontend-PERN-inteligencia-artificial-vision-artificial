@@ -1,16 +1,22 @@
 
 import React from 'react';
-
+import { connect } from "react-redux";
 import './Footer.css';
 
-const Footer = () => {
+const Footer = (props) => {
 
-    return (
-        <div className="designFooter">
-            GeeksHubs Academy - 2022
-        </div>
-    )
+        return (
+
+            <div className="designFooter" style={{
+                display: props.hideFooter.isHome ? 'none' : undefined
+            }}>
+            <span>AIFLIX reserve Rights</span> 
+            </div>
+        )
+    
 
 }
 
-export default Footer;
+export default connect((state) => ({
+    hideFooter: state.hideFooter
+}))(Footer);

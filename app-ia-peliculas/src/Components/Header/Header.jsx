@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LOGOUT, MOVIES_TITLE } from '../../redux/types';
+import { LOGOUT, MOVIES_TITLE } from '../../redux/actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import 'antd/dist/antd.css';
@@ -13,7 +13,7 @@ import {
 import './Header.css';
 
 const Header = (props) => {
-    console.log(window.location.pathname)
+    
 
     let navigate = useNavigate();
 
@@ -69,7 +69,7 @@ const Header = (props) => {
             console.log(error);
         }
     }
-    console.log(window.location.pathname);
+    // console.log(window.location.pathname);
     if (!props.credentials?.token) {
         return (
             <div className='designHeader'>
@@ -89,10 +89,14 @@ const Header = (props) => {
         )
     } else {
         return (
+            <div className='designHeaderGlobal'>
+            {
+            window.location.pathname !== "/display" &&
+
             <div className='designHeader'>
+
                 <div className="headerSpace logoDesign">
-                    <img className="logo" src={require('../../img/aiflix-logo.png')} alt="logo" onClick={() => navegar("/")}></img>
-                    
+                    <img className="logo" src={require('../../img/aiflix-logo.png')} alt="logo" onClick={() => navegar("/film")}></img>
                 </div>
                 <div className="headerSpace searchDesign">
                     {
@@ -111,22 +115,39 @@ const Header = (props) => {
                          
                     }
                     {
-                        (window.location.pathname !== "/add")&&
+                        (window.location.pathname !== "/add") &&
                         <div className="link" onClick={() => navegar("/add")}>Add</div>
                     }
+                    
                     {
                          ( window.location.pathname === "/film" ) &&
                          <div className="link" onClick={() => navegar("/film")}><b>Film</b></div>
                          
                     }
                     {
-                        (window.location.pathname !== "/film")&&
+                        (window.location.pathname !== "/film") &&
                         <div className="link" onClick={() => navegar("/film")}>Film</div>
                     }
-                    <div className="link" onClick={() => navegar("/profile")}>{props.credentials?.usuario.nombre}</div>
+                    <div className="link" onClick={() => navegar("/profile")}>
+                        {props.credentials?.usuario.nombre}
+                    </div>
                     <div className="link" onClick={() => logOut()}>Logout</div>
                 </div>
+    
             </div>
+            }
+            {
+            window.location.pathname === "/display" &&
+            (
+
+                <div className="headerSpace logoDesign">
+                    <img className="logoDisplay" src={require('../../img/volver.png')} alt="logo" onClick={() => navegar("/film")}></img>
+                </div>
+
+            )
+            }
+        </div>
+                
         )
     }
 

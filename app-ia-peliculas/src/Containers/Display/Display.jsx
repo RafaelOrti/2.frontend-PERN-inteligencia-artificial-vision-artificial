@@ -2,28 +2,103 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import {raiz} from '../../utiles';
 import axios from 'axios';
+import ReactPlayer from 'react-player'
+import { connect } from "react-redux";
+import { IS_HOME } from "../../redux/actions";
+
+import YouTube from '@u-wave/react-youtube';
+
 
 import Rent from '../../Components/Rent/Rent';
 
 import './Display.css';
 
-const Display = () => {
+const Display = (props) => {
+    const playerRef = React.useRef();
+
+    console.log(props)
+
+
+    useEffect(() =>{
+        props.dispatch({ type: IS_HOME })
+    },[])
+
+
+
+    
+
+
+
+    // let navigate = useNavigate();
+    // const navegar = (lugar) => {
+    //     setTimeout(() => {
+    //         navigate(lugar);
+    //     }, 200);
+    // }
+    // let ref = player => {
+    //     this.player = player
+    //   }
+    // var youtube = document.getElementById("playerRef");
+    // youtube = youtube.contentWindow;
+    // youtube.oncontextmenu = function(e) {
+    // e.preventDefault();
+    // console.log("Blocked!");
+    // }
+    
 
     return (
+        // <></> componente vacio que no tiene nada y le puedes intercalar {} para poner la condicion
         <div className='designDisplay'>
-            <video className='video'>
-            <source
-            src="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4"
-            type="video/mp4"
+            
+            {/* <YouTube
+            showCaptions={false}
+            controls
+            annotations={false}
+            url={props.search?.video}
+            autoplay
+            /> */}
+
+
+            <ReactPlayer
+            ref={playerRef} 
+            url={props.search?.video}
+            className='react-player'
+            playing
+            controls
+            width='100%'
+            height='100%'
+        
+            
             />
-            Your browser does not support the video tag.
-            </video>
+         
+        {/* <button onClick={() => {
+  	    console.log(Math.round(playerRef.current.getCurrentTime()));}}></button> */}
         </div>
+        
     )
+
+    
 
 }
 
-export default Display;
+export default connect((state) => ({
+
+    search : state.search.film
+}))(Display);
+//para enviar datos para recibir y enviar el otro en caso de nada el simple
+
+
+{/* <ReactPlayer 
+            ref={this.ref}
+            url='https://www.youtube.com/watch?v=ysz5S6PUM-U' 
+            width='100%'
+            height='100%'
+            muted="false"
+            controls
+            playing
+            onEnded={() => navegar("/films")}
+
+            /> */}
 
 
 

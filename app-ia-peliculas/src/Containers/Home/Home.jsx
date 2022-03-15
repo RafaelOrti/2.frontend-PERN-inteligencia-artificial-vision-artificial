@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { NOT_HOME } from "../../redux/actions";
+
 
 import './Home.css';
 
-const Home = () => {
+const Home = (props) => {
+    
+
+    useEffect(() => {
+        console.log('Created')
+        props.dispatch({ type: NOT_HOME })
+    }, [])
 
     return (
         <div className='designHome'>
@@ -12,7 +21,7 @@ const Home = () => {
 
 }
 
-export default Home;
+export default connect()(Home);
 
 
 
@@ -20,7 +29,7 @@ export default Home;
 // import { useNavigate } from 'react-router-dom';
 // import axios from 'axios';
 // import { connect } from 'react-redux';
-// import { MOVIE_DETAIL } from '../../redux/types';
+// import { MOVIE_DETAIL } from '../../redux/actions';
 // import {raiz} from '../../utiles';
 // import './Home.css';
 // import { Card } from 'antd';

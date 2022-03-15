@@ -4,12 +4,17 @@ import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import {checkError} from '../../utiles';
 import './Register.css';
+import { connect } from "react-redux";
+import { NOT_HOME } from "../../redux/actions";
 
-const Register = () => {
+const Register = (props) => {
 
     let navigate = useNavigate();
 
-    
+    useEffect(() => {
+        console.log('Created')
+        props.dispatch({ type: NOT_HOME })
+    }, [])
     //Hooks
 
     const [datosUsuario, setDatosUsuario] = useState({
@@ -138,4 +143,4 @@ const Register = () => {
 
 }
 
-export default Register;
+export default connect()(Register);

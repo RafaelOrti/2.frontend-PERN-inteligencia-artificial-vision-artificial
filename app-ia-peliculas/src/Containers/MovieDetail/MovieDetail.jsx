@@ -1,8 +1,11 @@
 
 import React, {useEffect, useState} from 'react';
 import { connect } from 'react-redux';
+import { NOT_HOME } from "../../redux/actions";
+
 import {useNavigate} from 'react-router-dom';
 import Rent from '../../Components/Rent/Rent';
+import Footer from '../../Components/Footer/Footer';
 // import {raiz} from '../../utiles';
 
 import './MovieDetail.css';
@@ -10,6 +13,11 @@ import './MovieDetail.css';
 const MovieDetail = (props) => {
 
     let navigate = useNavigate();
+
+    useEffect(() => {
+        console.log('Created')
+        props.dispatch({ type: NOT_HOME })
+    }, [])
     
     const navegar = (lugar) => {
 
@@ -19,7 +27,7 @@ const MovieDetail = (props) => {
 
     }
 
-
+   
     useEffect(()=> {
         //Compruebo si hay datos de la película escogida en redux, en caso de NO
         //haber datos, redirijo a HOME.
@@ -34,7 +42,7 @@ const MovieDetail = (props) => {
                 <div className="filmDetailHalf">
                     <div className="dataFilm">{props.search?.title}</div>
                     <div className="dataFilm">{props.search?.synopsis}</div>
-                    <div className="link" onClick={() => navegar("/display")}>Ver</div>
+                    <div className="link" onClick={() => {navegar("/display"); }}>Ver</div>
                     
                 </div>
                 <div className="filmDetailHalf">
@@ -43,7 +51,7 @@ const MovieDetail = (props) => {
         )
    
 }
-
+// navegar("/display"); 
 export default connect((state) => ({
     credentials: state.credentials,
     search : state.search.film

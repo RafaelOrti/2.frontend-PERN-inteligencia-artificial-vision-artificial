@@ -2,12 +2,15 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { MOVIE_DETAIL } from '../../redux/types';
+import { MOVIE_DETAIL } from '../../redux/actions';
 import { connect } from 'react-redux';
+import { NOT_HOME } from "../../redux/actions";
+
 import {raiz} from '../../utiles';
 import './Add.css';
 import { Card } from 'antd';
 import 'antd/dist/antd.css';
+
 
 const Add = (props) => {
 
@@ -20,7 +23,8 @@ const Add = (props) => {
         //dado que el useEffect es en si un proceso con un callback, meter un proceso
         //asíncrono traería problemas y React no lo permite, por ello, llamamos a una funcion
         //que habremos hecho nosotros y se encargará de ello
-
+        console.log('Created')
+        props.dispatch({ type: NOT_HOME })
         traePelis();
     },[]);
 
@@ -114,3 +118,9 @@ const Add = (props) => {
 export default connect((state) => ({
     credentials: state.credentials
 }))(Add);
+//te exporta el add diciendo que esta conectado a redux
+
+export const pepe = connect((state) => ({
+    credentials: state.credentials
+}))(Add);
+//puedes exportar lo que quieras funcion variable objeto etc...

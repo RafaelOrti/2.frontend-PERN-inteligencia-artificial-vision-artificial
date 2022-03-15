@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
-import { LOGOUT } from '../../redux/types';
+import { LOGOUT } from '../../redux/actions';
 import {connect} from 'react-redux';
 
 import './Redirector.css';

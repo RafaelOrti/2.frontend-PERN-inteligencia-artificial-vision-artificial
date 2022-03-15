@@ -1,4 +1,4 @@
-
+/* 
 .designFooter {
     height: 6em;
     z-index: 1;
@@ -8,4 +8,29 @@
     background-color: transparent;
     color: white;
     font-weight: bold;
+} */
+
+
+.designFooter {
+    height: 6em;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    display:flex;
+
+}
+
+
+.designFooterEmpty {
+    height: 0em;
+    z-index: -1;
+    position: absolute;
+
+    top: 100;
+    background-color: transparent;
+
 }

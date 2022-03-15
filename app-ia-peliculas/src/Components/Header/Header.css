@@ -1,4 +1,15 @@
 
+.designHeaderGlobal {
+    height: 5em;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    
+
+   
+}
+
+
 .designHeader {
     height: 5em;
     width: 100%;
@@ -53,6 +64,7 @@
     flex-direction: row;
     align-items: flex-end;
     justify-content: flex-start;
+    
 }
 
 .logo{
@@ -63,4 +75,19 @@
 .logo:hover { 
     cursor: pointer; 
 }
+
+.logoDisplay{
+    height: 4em;
+    width: 9em; 
+    display: none;
+}
+
+
+.headerSpace:hover .logoDisplay{
+
+    display: block;
+}
+
+
+
 

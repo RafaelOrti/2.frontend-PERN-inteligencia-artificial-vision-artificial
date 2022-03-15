@@ -3,6 +3,7 @@ import './App.css';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
+
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Home from './Containers/Home/Home';
@@ -14,6 +15,9 @@ import SearchResults from './Containers/SearchResults/SearchResults';
 import Film from './Containers/Film/Film';
 import Add from './Containers/Add/Add';
 import Display from './Containers/Display/Display';
+
+
+
 
 function App() {
   return (

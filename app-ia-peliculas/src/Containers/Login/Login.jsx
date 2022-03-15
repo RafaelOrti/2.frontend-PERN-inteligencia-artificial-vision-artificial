@@ -6,7 +6,8 @@ import axios from 'axios';
 
 //REDUX...
 import { connect } from 'react-redux';
-import { LOGIN } from '../../redux/types';
+import { LOGIN } from '../../redux/actions';
+import { NOT_HOME } from "../../redux/actions";
 
 
 import './Login.css';
@@ -14,6 +15,10 @@ import './Login.css';
 const Login = (props) => {
     
     let navigate = useNavigate();
+    useEffect(() => {
+        console.log('Created')
+        props.dispatch({ type: NOT_HOME })
+    }, [])
 
     //1-Hooks (equivalen al estado en los componentes de clase)
     const [datosUsuario, setDatosUsuario] = useState({email: "", password: ""});

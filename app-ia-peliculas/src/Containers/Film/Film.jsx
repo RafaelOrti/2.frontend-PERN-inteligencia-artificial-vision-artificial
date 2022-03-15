@@ -2,8 +2,10 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { MOVIE_DETAIL } from '../../redux/types';
+import { MOVIE_DETAIL } from '../../redux/actions';
 import { connect } from 'react-redux';
+import { NOT_HOME } from "../../redux/actions";
+
 import {raiz} from '../../utiles';
 import './Film.css';
 import { Card } from 'antd';
@@ -20,7 +22,8 @@ const Film = (props) => {
         //dado que el useEffect es en si un proceso con un callback, meter un proceso
         //asíncrono traería problemas y React no lo permite, por ello, llamamos a una funcion
         //que habremos hecho nosotros y se encargará de ello
-
+        console.log('Created')
+        props.dispatch({ type: NOT_HOME })
         traePelis();
     },[]);
 
@@ -70,6 +73,7 @@ const Film = (props) => {
         
         return(
             <div className='designFilm'>
+                <div className='designFilm'></div>
                 <div className="designRooster">
 
                     {
@@ -86,7 +90,7 @@ const Film = (props) => {
                                     //si le hacemos propiedad onclick y pasamos el elemento como argumento,
                                     //a esa funcion le va a llegar el objeto que hayamos clickado entero
                                     
-
+                                    
                                     pelicula.anuncio===false &&
                                     <div className="cardPelicula" key={pelicula.id} onClick={()=>escogePelicula(pelicula)}>
                                         <img className="fotoCard" src={pelicula.imagen} alt={pelicula.titulo}/>
@@ -100,6 +104,7 @@ const Film = (props) => {
                     }
                     
                 </div>
+                
             </div>
         )
     }else{
@@ -108,6 +113,7 @@ const Film = (props) => {
                 <div className="marginLoader">
                     <img src={require('../../img/loader.gif')} alt="cargador"/>
                 </div>
+                
             </div>
         )
     }

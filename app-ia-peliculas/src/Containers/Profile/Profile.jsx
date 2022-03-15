@@ -2,14 +2,22 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {MODIFY_CREDENTIALS} from '../../redux/types';
+import { NOT_HOME } from "../../redux/actions";
+
+import {MODIFY_CREDENTIALS} from '../../redux/actions';
 import axios from 'axios';
 
 import "./Profile.css";
+import Footer from '../../Components/Footer/Footer';
 
 const Profile = (props) => {
 
     let navigate = useNavigate();
+
+    useEffect(() => {
+        console.log('Created')
+        props.dispatch({ type: NOT_HOME })
+    }, [])
 
     //Hooks
     const [datosUsuario, setDatosUsuario] = useState({
@@ -20,8 +28,11 @@ const Profile = (props) => {
 
     //Handler (manejador)
     const rellenarDatos = (e) => {
+        //para cambiar el hook
         setDatosUsuario({...datosUsuario, 
             [e.target.name]: e.target.value})
+        //para cambiar el redux
+        props.dispatch({ type: MODIFY_CREDENTIALS, payload: { field: e.target.name, field_value: e.target.value } })
     };
 
     useEffect(() => {
@@ -46,15 +57,16 @@ const Profile = (props) => {
 
         try {
             //Hacemos el update en la base de datos
-            let res = await axios.put(`https://movie-db-geekshubs.herokuapp.com/usuarios/${props.credentials.usuario.id}`,body, config);
+            await axios.put(`https://movie-db-geekshubs.herokuapp.com/usuarios/${props.credentials.usuario.id}`,body, config);
 
+            // esto para ver la respeusta del put
+            // let res = await axios.put(`https://movie-db-geekshubs.herokuapp.com/usuarios/${props.credentials.usuario.id}`,body, config);
             
             
-            
-            if(res){
-                //Guardamos en redux
-                props.dispatch({type:MODIFY_CREDENTIALS, payload: datosUsuario});
-            }
+            // if(res){
+            //     //Guardamos en redux
+            //     props.dispatch({type:MODIFY_CREDENTIALS, payload: datosUsuario});
+            // }
         } catch (error) {
             console.log(error)
         }
@@ -79,6 +91,7 @@ const Profile = (props) => {
              
             </div>
         </div>
+        
     )
 
 
