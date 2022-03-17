@@ -15,22 +15,17 @@
     height: 6em;
     z-index: 1;
     position: absolute;
+
     width: 100%;
     bottom: 0;
-    background-color: red;
+    background-color: transparent;
     color: white;
     font-weight: bold;
     display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
 
 }
 
-
-.designFooterEmpty {
-    height: 0em;
-    z-index: -1;
-    position: absolute;
-
-    top: 100;
-    background-color: transparent;
-
-}

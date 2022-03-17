@@ -82,8 +82,22 @@ const Header = (props) => {
                 <div className="headerSpace searchDesign">
                 </div>
                 <div className="headerSpace linksDesign">
+                {
+                        (window.location.pathname === "/login") &&
+                    <div className="link" onClick={() => navegar("/login")}><b>Login</b></div>
+                }
+                {
+                        (window.location.pathname !== "/login") &&
                     <div className="link" onClick={() => navegar("/login")}>Login</div>
+                }
+                {
+                    (window.location.pathname === "/register") &&
+                    <div className="link" onClick={() => navegar("/register")}><b>Registro</b></div>
+                }
+                {
+                    (window.location.pathname !== "/register") &&
                     <div className="link" onClick={() => navegar("/register")}>Registro</div>
+                }
                 </div>
             </div>
         )
@@ -109,7 +123,7 @@ const Header = (props) => {
                     <div className="relleno"></div>
                 </div>
                 <div className="headerSpace linksDesign">
-                    {
+                    {/* {
                          ( window.location.pathname === "/add" ) &&
                          <div className="link" onClick={() => navegar("/add")}><b>Add</b></div>
                          
@@ -117,21 +131,37 @@ const Header = (props) => {
                     {
                         (window.location.pathname !== "/add") &&
                         <div className="link" onClick={() => navegar("/add")}>Add</div>
-                    }
+                    } */}
                     
                     {
                          ( window.location.pathname === "/film" ) &&
-                         <div className="link" onClick={() => navegar("/film")}><b>Film</b></div>
+                         <div className="link" onClick={() => navegar("/film")}><b>Películas</b></div>
                          
                     }
                     {
                         (window.location.pathname !== "/film") &&
-                        <div className="link" onClick={() => navegar("/film")}>Film</div>
+                        <div className="link" onClick={() => navegar("/film")}>Películas</div>
                     }
+                    {
+                        (window.location.pathname === "/profile") &&
+                    <div className="link" onClick={() => navegar("/profile")}>
+                        <b>{props.credentials?.usuario.nombre}</b>
+                    </div>
+                    }
+                    {
+                        (window.location.pathname !== "/profile") &&
                     <div className="link" onClick={() => navegar("/profile")}>
                         {props.credentials?.usuario.nombre}
                     </div>
+                    }
+                    {
+                        (window.location.pathname === "/profile") &&
+                    <div className="link" onClick={() => logOut()}> <b> Logout</b></div>
+                    }
+                    {
+                        (window.location.pathname !== "/profile") &&
                     <div className="link" onClick={() => logOut()}>Logout</div>
+                    }
                 </div>
     
             </div>

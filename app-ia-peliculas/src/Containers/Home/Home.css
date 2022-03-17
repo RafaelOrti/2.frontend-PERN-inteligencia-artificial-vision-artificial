@@ -12,54 +12,8 @@
     justify-content: center;
     align-items: center;
 }
-
-.designRooster {
-    display: flex;
-    flex-wrap: wrap;
-
-    justify-content: center;
-    align-items: center;
-
-   
-
-}
-
-.designRooster>:nth-child(2n) {
-    margin-left: 4em;
-}
-
-.designRooster>*{
-    flex-basis: 35%;
-}
-
-.cardPelicula {
-
-    height: 20em;
-    width: 9em;
-
-    background-color: hsl(221, 40%, 54%);
-
-    margin: .2em;
-
-    border-radius: .5em;
-
-    padding: .2em;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-
-    color: white;
-    font-weight: bold;
-}
-
-.fotoCard {
-    margin: .2em;
-    box-sizing: border-box;
-}
-
 .fondo{
     width: 100%;
     height: 100%;
     position:relative;
-}
+} 

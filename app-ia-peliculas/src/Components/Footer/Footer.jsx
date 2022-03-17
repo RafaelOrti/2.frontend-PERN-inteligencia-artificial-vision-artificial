@@ -10,7 +10,7 @@ const Footer = (props) => {
             <div className="designFooter" style={{
                 display: props.hideFooter.isHome ? 'none' : undefined
             }}>
-            <span>AIFLIX reserve Rights</span> 
+            <span>AIFLIX Reserve Rights</span> 
             </div>
         )
     
