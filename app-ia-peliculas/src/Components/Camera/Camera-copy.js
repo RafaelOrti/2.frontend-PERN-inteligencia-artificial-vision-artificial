@@ -36,7 +36,7 @@ const Camera = ({ photoMode }) => {
     if (!photoMode && camera !== null) {
       const ticking = setInterval(async () => {
         await getFaces();
-      }, 8000);
+      }, 80);
       return () => {
         clearOverlay(cameraCanvas);
         clearInterval(ticking);

@@ -8,12 +8,10 @@ import { mapExpressionToEmoji } from '../../helpers/emojis';
 import './Results.css';
 
 const Results = ({ results, processing }) => {
-  
   if (processing && results) {
     return <Spinner />;
   }
   if (!processing && results && results.length > 0) {
-
     return (
       <div className="results">
         {results.length > 1 ? (
@@ -37,7 +35,6 @@ const Results = ({ results, processing }) => {
             <div>
               <p>I think...</p>
               <p>You look {results[0].expressions.asSortedArray()[0].expression}</p>
-              
               <p>You seem to be {Math.round(results[0].age)} years old</p>
               <p>I think you are a {results[0].gender}</p>
             </div>
