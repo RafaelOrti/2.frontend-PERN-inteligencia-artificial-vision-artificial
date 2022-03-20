@@ -34,6 +34,7 @@ const Film = (props) => {
     let body;
     let i = 0;
 
+
     //elementos cargados al inicio
     useEffect(() => {
         console.log('Created')
@@ -43,19 +44,19 @@ const Film = (props) => {
         traePelisHumor();
         traePelisAccion();
         traePelisAI();
+
     }, [])
 
     //llamada directa a backend
     const traePelis = async () => {
         try {
             let res = await axios.get(raiz + "peliculas/", { headers: { "Authorization": `Bearer ${props.credentials?.token}` } });
-            // console.log("res")
-            // console.log(res)
+            
             setTimeout(() => {
                 // console.log("res2")
                 // console.log(res.data)
                 setFilms(res.data);
-            }, 2);
+            }, 500);
         } catch (error) {
             console.log(error);
         }
@@ -104,8 +105,8 @@ const Film = (props) => {
             let res = await axios.post(raiz + "peliculas/genero", {
                 genero: "accion"
             });
-            // console.log("res")
-            // console.log(res)
+            console.log("res88888888888888")
+            console.log(res)
             setTimeout(() => {
                 // console.log("res2")
                 // console.log(res.data)
@@ -126,7 +127,8 @@ const Film = (props) => {
 
             //http://localhost:3000/peliculas
             let res = await axios.post(raiz + `peliculas/ia/${props.credentials?.usuario.id}`, { headers: { "Authorization": `Bearer ${props.credentials?.token}` } });
-
+            console.log("res")
+            console.log(res.data)
             // let config = {
             //     headers: { Authorization: Bearer ${props.credenciales.token} }
             // };
@@ -155,7 +157,7 @@ const Film = (props) => {
             a = 0;
             traePelisAV(props.emotions?.emotion);
         }
-    }, 500)
+    }, 100)
 
 
     //Procesado de datos cad x segundos a traves de redux para hacer llamada a backend
@@ -172,13 +174,12 @@ const Film = (props) => {
                 surprised: emotion.surprised,
                 id: props.credentials?.usuario.id
             }
-            console.log("res222")
-            console.log(body)
+            
 
             let res = await axios.post(raiz + `peliculas/ias`, body);
             setTimeout(() => {
-                // console.log("res2")
-                // console.log(res.data)
+                console.log("cosas que trae la av")
+                console.log(res.data)
                 setFilmsAV(res.data);
             }, 2);
 
@@ -212,10 +213,26 @@ const Film = (props) => {
 
     const escogePelicula = (pelicula) => {
         //Guardamos la pelicula escogida en redux
+        console.log("pelicula")
+        console.log(pelicula)
         props.dispatch({ type: MOVIE_DETAIL, payload: pelicula });
         //Redirigimos a movieDetail con navigate
         navigate("/moviedetail");
     }
+
+    // const avanzarPeliculas = (i) => {
+    //     if (films.length < (i + 1)) {
+    //         i += 10
+    //     }
+    //     console.log("pelicula avanzada")
+    // }
+    // const atrasarPeliculas = (i) => {
+    //     if (i <= 0) {
+    //     } else {
+    //         i -= 10
+    //     }
+    // }
+
 
 
 
@@ -223,14 +240,12 @@ const Film = (props) => {
     if (films[0]?.id !== undefined && filmsTerror[0]?.id !== undefined && filmsHumor[0]?.id !== undefined && filmsAccion[0]?.id !== undefined && filmsAI[0]?.id !== undefined) {
         return (
             <div className='designFilm'>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
+                <div className="espacioSupFilm"></div>
                 <Camera mode={false} />
                 <div className='designFilmSubFilm'>
-                    <p>Peliculas AV AI</p>
+                    <div className="divPFilm">
+                        <p className="pFilm">Peliculas AV AI</p>
+                    </div>
                     <div className="container">
                         {
 
@@ -265,7 +280,9 @@ const Film = (props) => {
                                 }))
                         }
                     </div>
-                    <p>Peliculas AI</p>
+
+                    <div className="divPFilm">
+                        <p className="pFilm">Peliculas AI</p></div>
                     <div className="container">
                         {
                             (filmsAI !== "") &&
@@ -284,7 +301,9 @@ const Film = (props) => {
                         {
                             (filmsAI === "") &&
                             (
+
                                 films.slice(i, i + 10).map(pelicula => {
+                                    
                                     return (
                                         <div className="item" key={pelicula.id} onClick={() => escogePelicula(pelicula)}>
                                             <img className="fotoCard" src={pelicula.imagen} alt={pelicula.titulo} />
@@ -294,7 +313,8 @@ const Film = (props) => {
                                 }))
                         }
                     </div>
-                    <p>Todas las películas</p>
+                    <div className="divPFilm">
+                        <p className="pFilm">Todas las películas</p></div>
                     <div className="container">
                         {
                             films.slice(i, i + 10).map(pelicula => {
@@ -311,7 +331,8 @@ const Film = (props) => {
                             </>
                         } */}
                     </div>
-                    <p>Películas de terror</p>
+                    <div className="divPFilm">
+                        <p className="pFilm">Películas de terror</p></div>
                     <div className="container">
                         {
                             filmsTerror.slice(i, i + 10).map(peliculaTerror => {
@@ -325,7 +346,8 @@ const Film = (props) => {
                         }
 
                     </div>
-                    <p>Películas de humor</p>
+                    <div className="divPFilm">
+                        <p className="pFilm">Películas de humor</p></div>
                     <div className="container">
                         {
                             filmsHumor.slice(i, i + 10).map(peliculaHumor => {
@@ -339,7 +361,8 @@ const Film = (props) => {
                         }
 
                     </div>
-                    <p>Películas de accion</p>
+                    <div className="divPFilm">
+                        <p className="pFilm">Películas de accion</p></div>
                     <div className="container">
                         {
                             filmsAccion.slice(i, i + 10).map(peliculaAccion => {
@@ -363,7 +386,7 @@ const Film = (props) => {
         return (
             <div className='designFilm'>
                 <div className="marginLoader">
-                    <img src={require('../../img/loader.gif')} alt="cargador" />
+                    <img className="marginLoaderImage" src={require('../../img/loader.gif')} alt="cargador" />
                 </div>
             </div>
         )

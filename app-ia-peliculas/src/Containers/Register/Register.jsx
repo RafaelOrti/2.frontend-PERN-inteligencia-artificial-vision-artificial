@@ -5,6 +5,7 @@ import axios from 'axios';
 import {checkError} from '../../utiles';
 import './Register.css';
 import { connect } from "react-redux";
+import {raiz} from '../../utiles';
 import { NOT_HOME } from "../../redux/actions";
 
 const Register = (props) => {
@@ -86,20 +87,17 @@ const Register = (props) => {
         let body = {
             nombre: datosUsuario.nombre,
             apellido: datosUsuario.apellido,
-            edad: datosUsuario.edad,
+            edad: parseInt(datosUsuario.edad),
             email: datosUsuario.email,
-            dni: datosUsuario.dni,
-            password: datosUsuario.password,
-            telefono: parseInt(datosUsuario.telefono),
-            numCuenta: datosUsuario.numCuenta
+            nickname: datosUsuario.nickname,
+            password: datosUsuario.password
         }
 
-        console.log("le llaman BODY", body);
         //3 envio de axios
 
         try {
             
-            let resultado = await axios.post("https://movie-db-geekshubs.herokuapp.com/usuarios", body);
+            let resultado = await axios.post(raiz+"usuarios/registro", body);
             console.log(resultado);
             
                 setTimeout(()=>{
@@ -120,21 +118,22 @@ const Register = (props) => {
             <div className="cardRegister">
                 <div className="upCardRegister">Formulario de Registro</div>
                 <div className="middleCardRegister">
-                    {<pre>{JSON.stringify(datosUsuario, null,2)}</pre>}
+                    {/* {<pre>{JSON.stringify(datosUsuario, null,2)}</pre>} */}
                     <input type="text" name="nombre" id="nombre" title="nombre" placeholder="Nombre:" autoComplete="off" onChange={(e)=>{rellenarDatos(e)}}/>
                     <input type="text" name="apellido" id="apellido" title="apellido" placeholder="Apellido:" autoComplete="off" onChange={(e)=>{rellenarDatos(e)}}/>
                     <input type="text" name="edad" id="edad" title="edad" placeholder="Edad:" autoComplete="off" onChange={(e)=>{rellenarDatos(e)}}/>
                     <input type="email" name="email" id="email" title="email" placeholder="Correo Electrónico:" autoComplete="off" onChange={(e)=>{rellenarDatos(e)}}/>
-                    <input type="text" name="dni" id="dni" title="dni" placeholder="DNI" autoComplete="off" onChange={(e)=>{rellenarDatos(e)}}/>
+                    <input type="nickname" name="nickname" id="nickname" title="nickname" placeholder="Nickname:" autoComplete="off" onChange={(e)=>{rellenarDatos(e)}}/>
+                    {/* <input type="text" name="dni" id="dni" title="dni" placeholder="DNI" autoComplete="off" onChange={(e)=>{rellenarDatos(e)}}/> */}
                     <input type="password" name="password" id="password" title="password" placeholder="Contraseña" autoComplete="off" onChange={(e)=>{rellenarDatos(e)}}/>
                     <input type="password" name="password2" id="password2" title="password2" placeholder="Repite contraseña" autoComplete="off" onChange={(e)=>{rellenarDatos(e)}}/>
-                    <input type="text" name="telefono" id="telefono" title="telefono" placeholder="Telefono" autoComplete="off" onChange={(e)=>{rellenarDatos(e)}}/>
-                    <input type="text" name="numCuenta" id="numCuenta" title="numCuenta" placeholder="NºCuenta" autoComplete="off" onChange={(e)=>{rellenarDatos(e)}}/>
+                    {/* <input type="text" name="telefono" id="telefono" title="telefono" placeholder="Telefono" autoComplete="off" onChange={(e)=>{rellenarDatos(e)}}/> */}
+                    {/* <input type="text" name="numCuenta" id="numCuenta" title="numCuenta" placeholder="NºCuenta" autoComplete="off" onChange={(e)=>{rellenarDatos(e)}}/> */}
                 </div>
                 <div className="bottomCardRegister">
                     {msgError}
-                    <div className="botonRegistro" onClick={()=>registrame()}>
-                        Register me!
+                    <div className="button type32 espacio" onClick={()=>registrame()}>
+                        Registrar
                     </div>
                 </div>
             </div>

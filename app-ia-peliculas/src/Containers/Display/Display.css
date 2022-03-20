@@ -10,10 +10,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position:relative;
 }
 
 
 .video{
     width: 100vw;
     height: 100vh;
+    position: absolute;
+    z-index:5;
+}
+
+.cameraHidden{
+    position: absolute ;
+    z-index:-5 ;
+    /* display: none ; */
+    /* visibility: hidden !important; */
+    
 }

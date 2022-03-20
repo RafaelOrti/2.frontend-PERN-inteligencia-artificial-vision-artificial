@@ -2,8 +2,27 @@
 .designFilm {
 
     background-image: url("../../img/login.jpg");
+    background-size: cover;
     width: 100%;
-    height: 300em; 
+    height: 171em; 
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+}
+.espacioSupFilm{
+  width: 100%;
+  height: 10em;
+}
+
+.designFilmSubFilm {
+
+    background-color: transparent;
+    
+    width: 100%;
+    height: 120em;
 
     display: flex;
     flex-direction: column;
@@ -12,18 +31,21 @@
     position:relative;
 }
 
-.designFilmSubFilm {
-
-    background-color: transparent;
-    
-    width: 100%;
-    height: 150em;
-
+.divPFilm{
+    width: 90%;
+    height: 5em;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position:relative;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 3em;
+  
+}
+
+.pFilm{
+  font-weight: bold;
+  font-size: 2.5em;
+ 
 }
 
   
@@ -150,8 +172,11 @@
 
   .container {
     display: flex;
-    margin-top: 4em;
+    margin-top: 2em;
     /* padding: 0 2em; */
+    /* width: 20em; */
+    /* overflow-x:scroll;
+    overflow-x:hidden; */
     
   }
 
@@ -298,3 +323,12 @@
   margin-right: 0.75rem;
 }
 /* results */
+
+.marginLoader{
+  position:absolute;
+  top:5em;
+}
+
+.marginLoaderImage{
+  min-width: 10em;min-height:10em;
+}

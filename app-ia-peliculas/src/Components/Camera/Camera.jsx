@@ -23,14 +23,14 @@ const Camera = (props, { photoMode }) => {
 
   const getFaces = async () => {
     if (camera.current !== null) {
-      const faces = await detectFaces(camera.current.video);
-      await drawResults(camera.current.video, cameraCanvas.current, faces, 'boxLandmarks');
+      const faces = await detectFaces(camera.current?.video);
+      await drawResults(camera.current?.video, cameraCanvas.current, faces, 'boxLandmarks');
       setResults(faces);
     }
   };
 
   const clearOverlay = (canvas) => {
-    canvas.current.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+    canvas?.current?.getContext('2d')?.clearRect(0, 0, canvas?.width, canvas?.height);
   };
 
   const updateResults = (resultado) => {
@@ -44,10 +44,10 @@ const Camera = (props, { photoMode }) => {
   setTimeout(() => {
     i++
     // i2++
-    if (i === 200) {
+    if (i === 100) {
       i = 0;
       updateResults(results)
-    } 
+    }
     // if (i2 === 250) {
     //   i2 = 0;
     //   uploadResults(props.emotions?.emotion)
@@ -58,7 +58,7 @@ const Camera = (props, { photoMode }) => {
     if (!photoMode && camera !== null) {
       const ticking = setInterval(async () => {
         await getFaces();
-      }, 80);
+      }, 120);
       return () => {
         clearOverlay(cameraCanvas);
         clearInterval(ticking);
@@ -81,4 +81,4 @@ const Camera = (props, { photoMode }) => {
   );
 };
 
-export default connect((state)=>({emotions:state.emotions, usuario: state.credentials.usuario}))(Camera);
+export default connect((state) => ({ emotions: state.emotions, usuario: state.credentials.usuario }))(Camera);

@@ -1,12 +1,12 @@
 
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { NOT_HOME } from "../../redux/actions";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-import {useNavigate} from 'react-router-dom';
-import Rent from '../../Components/Rent/Rent';
-import Footer from '../../Components/Footer/Footer';
-// import {raiz} from '../../utiles';
+import { raiz } from '../../utiles';
+
 
 import './MovieDetail.css';
 
@@ -15,10 +15,32 @@ const MovieDetail = (props) => {
     let navigate = useNavigate();
 
     useEffect(() => {
-        console.log('Created')
+        console.log("props",props)
+        enviaDataSet();
         props.dispatch({ type: NOT_HOME })
     }, [])
-    
+
+    const enviaDataSet = async () => {
+        try {
+            console.log(props.search)
+            console.log("props.search")
+            console.log(props.credentials?.usuario.id)
+            let body = {
+                p: props.search?.id,
+                id: props.credentials?.usuario.id
+            }
+            let res = await axios.post(raiz + `usuarios/dataset`, body);
+            console.log(res);
+            // setTimeout(() => {
+            //     // console.log("res2")
+            //     // console.log(res.data)
+            //     setFilmsAI(res.data);
+            // }, 2);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     const navegar = (lugar) => {
 
         setTimeout(() => {
@@ -27,33 +49,39 @@ const MovieDetail = (props) => {
 
     }
 
-   
-    useEffect(()=> {
+
+    useEffect(() => {
         //Compruebo si hay datos de la película escogida en redux, en caso de NO
         //haber datos, redirijo a HOME.
-        
-        if(props.search?.titulo === undefined){
+
+        if (props.search?.titulo === undefined) {
             navigate("/");
         }
     });
 
-        return(
-            <div className='designFilm'>
-                <div className="filmDetailHalf">
-                    <div className="dataFilm">{props.search?.title}</div>
-                    <div className="dataFilm">{props.search?.synopsis}</div>
-                    <div className="link" onClick={() => {navegar("/display"); }}>Ver</div>
-                    
+    return (
+        <div className='designMovieDetail'>
+            <div className="filmDetailHalf">
+                <div className="seccionVer">
+                    <div className="dataFilm">{props.search?.titulo}</div>
                 </div>
-                <div className="filmDetailHalf">
-                    <img className="cartel" src={props.search.imagen} alt={props.search.titulo}/></div>    
+                <div className="seccionVer">
+                    <div className="dataFilm">{props.search?.sinopsis}</div>
+                </div>
+                <div className="seccionVer">
+                    <div className="button type3 espacio" onClick={() => { navegar("/display"); }}>Ver</div>
+
+                </div>
             </div>
-        )
-   
+            <div className="filmDetailHalf">
+                <img className="cartel" src={props.search.imagen} alt={props.search.titulo} /></div>
+        </div>
+    )
+
 }
 // navegar("/display"); 
 export default connect((state) => ({
     credentials: state.credentials,
-    search : state.search.film
+    search: state.search.film
 }))(MovieDetail);
 
