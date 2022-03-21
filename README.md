@@ -61,9 +61,3 @@ https://user-images.githubusercontent.com/45425367/159196827-14125151-e247-4bd7-
     ```
 
 
-## Uso de la API
-
-
-### Esquema de la base de datos
-
-
