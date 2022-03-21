@@ -8,7 +8,7 @@
 
 ![Sequelize](https://img.shields.io/badge/machine_learning-52B0E7?style=for-the-badge&logo=&logoColor=white)
 
-![Bcrypt](https://img.shields.io/badge/Artificial_intelligence-FFFF00?style=for-the-badge&logo=artificial-intelligence&logoColor=white)
+![Bcrypt](https://img.shields.io/badge/Artificial_vision-FFFF00?style=for-the-badge&logo=artificial-intelligence&logoColor=white)
 
 
 
