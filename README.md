@@ -6,7 +6,7 @@
 ![Nodejs](https://img.shields.io/badge/redux-800080?style=for-the-badge&logo=redux)
 ![NPM](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
 
-![Sequelize](https://img.shields.io/badge/machine_learning-52B0E7?style=for-the-badge&logo=&logoColor=white)
+![Sequelize](https://img.shields.io/badge/artificial_intelligence-52B0E7?style=for-the-badge&logo=&logoColor=white)
 
 ![Bcrypt](https://img.shields.io/badge/Artificial_vision-FFFF00?style=for-the-badge&logo=artificial-intelligence&logoColor=white)
 
