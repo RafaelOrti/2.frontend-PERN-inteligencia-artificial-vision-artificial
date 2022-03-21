@@ -1,11 +1,11 @@
 
 .designHome {
 
-    background-color: transparent;
+    background-image: url("../../img/login.jpg");
     width: 100vw;
     height: 100vh;
 
-
+    background-size: cover;
 
     display: flex;
     flex-direction: column;

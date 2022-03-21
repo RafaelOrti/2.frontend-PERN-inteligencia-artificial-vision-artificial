@@ -126,7 +126,7 @@ const Results = ({ results, processing }) => {
                       <p>eres un señor feliz</p>
                     )
                   }
-                  { !(results[0].expressions.asSortedArray()[0].expression==="happy" && results[0].gender==="male"  && results[0].age<=25) && !(results[0].expressions.asSortedArray()[0].expression==="angry" && results[0].gender==="male"&&  results[0].age>=25)&&
+                  { (results[0].expressions.asSortedArray()[0].expression!=="happy" || results[0].expressions.asSortedArray()[0].expression!=="angry" ||  results[0].age<25)&&
                     (
                       <p>déjame recomendarte unas películas</p>
                     )
@@ -155,18 +155,18 @@ const Results = ({ results, processing }) => {
                 <div className="textResults">Disgustado</div>
                 <div className="textResults">Temeroso</div>
                 <div className="textResults">Contento</div>
-                <div className="textResults">Neutral</div>
+                <div className="textResults">Relajado</div>
                 <div className="textResults">Triste</div>
                 <div className="textResults">Sorprendido</div>
               </div>
               <div className="results__wrapper__bar">
-                <div className="barraResults" style={{width:1+(results[0].expressions.angry*700)}}></div>
-                <div className="barraResults" style={{width:1+(results[0].expressions.disgusted*700)}}></div>
-                <div className="barraResults" style={{width:1+(results[0].expressions.fearful*700)}}></div>
-                <div className="barraResults" style={{width:1+(results[0].expressions.happy*700)}}></div>
-                <div className="barraResults" style={{width:1+(results[0].expressions.neutral *700)}}></div>
-                <div className="barraResults" style={{width:1+(results[0].expressions.sad*700)}}></div>
-                <div className="barraResults" style={{width:1+(results[0].expressions.surprised*700)}}></div>
+                <div className="barraResults" style={{width:1+(results[0].expressions.angry*540)}}></div>
+                <div className="barraResults" style={{width:1+(results[0].expressions.disgusted*540)}}></div>
+                <div className="barraResults" style={{width:1+(results[0].expressions.fearful*540)}}></div>
+                <div className="barraResults" style={{width:1+(results[0].expressions.happy*540)}}></div>
+                <div className="barraResults" style={{width:1+(results[0].expressions.neutral *540)}}></div>
+                <div className="barraResults" style={{width:1+(results[0].expressions.sad*540)}}></div>
+                <div className="barraResults" style={{width:1+(results[0].expressions.surprised*540)}}></div>
               </div>
             </div>
           </div>

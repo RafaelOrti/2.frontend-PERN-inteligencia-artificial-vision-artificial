@@ -33,6 +33,13 @@ const Film = (props) => {
     let navigate = useNavigate();
     let body;
     let i = 0;
+    const [ai, setAI] = useState(0);
+    // const [aii, setAI] = useState(0);
+    const [avi, setAVI] = useState(0);
+    const [terrori, setTerrorI] = useState(0);
+    const [accioni, setAccionI] = useState(0);
+    const [humori, setHmorI] = useState(0);
+
 
 
     //elementos cargados al inicio
@@ -153,9 +160,10 @@ const Film = (props) => {
     setTimeout(() => {
         a++;
         console.log(a);
-        if (a === 10) {
+        if (a === 3) {
             a = 0;
             traePelisAV(props.emotions?.emotion);
+            console.log("pidiendo pelliculas a AI")
         }
     }, 100)
 
@@ -164,6 +172,19 @@ const Film = (props) => {
 
     const traePelisAV = async (emotion) => {
         try {
+            if(emotion.angry>1){
+                emotion.angry=emotion.angry/10
+            }
+            if(emotion.disgusted>1){
+                emotion.angry=emotion.disgusted/10
+            }
+            if(emotion.fearful>1){
+                emotion.angry=emotion.fearful/10
+            }
+            if(emotion.angry>1){
+                emotion.sad=emotion.sad/10
+            }
+
             body = {
                 angry: emotion.angry,
                 disgusted: emotion.disgusted,
@@ -176,8 +197,9 @@ const Film = (props) => {
             }
             
 
-            let res = await axios.post(raiz + `peliculas/ias`, body);
+            let res = await axios.post(raiz + `peliculas/avias`, body);
             setTimeout(() => {
+                console.log("cosas que hemos detectado con AV",emotion)
                 console.log("cosas que trae la av")
                 console.log(res.data)
                 setFilmsAV(res.data);
@@ -220,18 +242,24 @@ const Film = (props) => {
         navigate("/moviedetail");
     }
 
-    // const avanzarPeliculas = (i) => {
-    //     if (films.length < (i + 1)) {
-    //         i += 10
-    //     }
-    //     console.log("pelicula avanzada")
-    // }
-    // const atrasarPeliculas = (i) => {
-    //     if (i <= 0) {
-    //     } else {
-    //         i -= 10
-    //     }
-    // }
+    const avanzarPeliculas = (b) => {
+        // let b=i
+        if (films.length < (b + 1)) {
+            
+        }else{
+            b += 10
+            setAI(b);
+        }
+        console.log("pelicula avanzada")
+        console.log(b)
+    }
+    const atrasarPeliculas = (b) => {
+        if (i <= 10) {
+        } else {
+            b -= 10;
+            setAI(b);
+        }
+    }
 
 
 
@@ -266,11 +294,11 @@ const Film = (props) => {
                             console.log(filmsAV)
                         }
                         {
-
-
                             (filmsAV === "") &&
                             (
-                                films.slice(i, i + 10).map(pelicula => {
+                                
+                            
+                            films.slice(i, i + 10).map(pelicula => {
                                     return (
                                         <div className="item" key={pelicula.id} onClick={() => escogePelicula(pelicula)}>
                                             <img className="fotoCard" src={pelicula.imagen} alt={pelicula.titulo} />
@@ -316,8 +344,9 @@ const Film = (props) => {
                     <div className="divPFilm">
                         <p className="pFilm">Todas las películas</p></div>
                     <div className="container">
+                    <div className="link flechaI" onClick={() => atrasarPeliculas(ai)}></div>
                         {
-                            films.slice(i, i + 10).map(pelicula => {
+                            films.slice(ai, ai + 10).map(pelicula => {
                                 return (
                                     <div className="item" key={pelicula.id} onClick={() => escogePelicula(pelicula)}>
                                         <img className="fotoCard" src={pelicula.imagen} alt={pelicula.titulo} />
@@ -330,6 +359,7 @@ const Film = (props) => {
                             <>
                             </>
                         } */}
+                        <div className="link flechaD" onClick={() => avanzarPeliculas(ai)}></div>
                     </div>
                     <div className="divPFilm">
                         <p className="pFilm">Películas de terror</p></div>

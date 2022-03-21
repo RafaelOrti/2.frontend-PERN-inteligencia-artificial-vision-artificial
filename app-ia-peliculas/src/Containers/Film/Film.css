@@ -4,7 +4,7 @@
     background-image: url("../../img/login.jpg");
     background-size: cover;
     width: 100%;
-    height: 171em; 
+    height: 195em; 
 
     display: flex;
     flex-direction: column;
@@ -14,7 +14,7 @@
 }
 .espacioSupFilm{
   width: 100%;
-  height: 10em;
+  height: 1em;
 }
 
 .designFilmSubFilm {
@@ -22,7 +22,7 @@
     background-color: transparent;
     
     width: 100%;
-    height: 120em;
+    height: 138em;
 
     display: flex;
     flex-direction: column;
@@ -53,9 +53,9 @@
 
   /* flex: 0 0 19.7%; */
   width: 10em;
-  height: 10em;
+  height: 12em;
 
-  background-color: hsl(221, 40%, 54%);
+  background-color: hsl(0, 0%, 0%);
 
 
 
@@ -106,6 +106,7 @@
   position:absolute;
   top:1em;
   font-size:1em;
+  margin-left:1em;
 }
 
 
@@ -312,7 +313,7 @@
 }
 
 .results__emoji {
-  color: #3d9970;
+  color: #482bc9;
 }
 
 .results__text {
@@ -326,9 +327,33 @@
 
 .marginLoader{
   position:absolute;
-  top:5em;
+  top:25em;
 }
 
 .marginLoaderImage{
   min-width: 10em;min-height:10em;
+}
+
+.flechaD{
+  width:2em;
+  height:12em;
+  background-image: url("../../img/flechaD.png");
+  background-size: cover;
+  background-size: 100% 100%;
+  margin-right: 0em;
+  margin-left: 0.5em;
+    margin-bottom: 0em;
+  
+}
+
+.flechaI{
+  width:2em;
+  height:12em;
+  background-image: url("../../img/flechaI.png");
+  background-size: cover;
+  background-size: 100% 100%;
+  margin-right: 0.5em;
+  margin-left: 0em;
+    margin-bottom: 0em;
+  
 }

@@ -112,9 +112,10 @@ const Display = (props) => {
         
             
             />
-            
+           
             <div className="cameraHidden">
-            <Camera  mode={false} />
+            <Camera  mode={false} width='10em'
+            height='10em'/>
             </div>
          
         {/* <button onClick={() => {

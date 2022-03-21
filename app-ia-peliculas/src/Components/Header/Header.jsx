@@ -56,7 +56,7 @@ const Header = (props) => {
         // window.location.pathname === "/add" &&
         // <div className="link" onClick={() => navegar("/film")}>Film</div>
         try {
-            let resultados = await axios.get(raiz+`/genero/titulo/${titulo}`);
+            let resultados = await axios.get(raiz+`peliculas/genero/titulo/${titulo}`);
 
             //Guardo en redux los resultados de las películas
 
@@ -115,13 +115,13 @@ const Header = (props) => {
                             <img className="logo" src={require('../../img/aiflix-logo.png')} alt="logo" onClick={() => navegar("/")}></img>
                         </div>
                         <div className="headerSpace searchDesign">
-                            {
+                            {/* {
                                 (window.location.pathname === "/film" || window.location.pathname === "/add") &&
                                 <Input.Group compact>
-                                    <Input style={{ width: 'calc(100% - 200px)' }} placeholder="Busca una película por título" onChange={(ev) => manejador(ev)} />
-                                    <Button onClick={() => busquedaPorTitulo()} type="primary">Go!</Button>
+                                    <Input style={{ width: 'calc(100% - 200px)'}} placeholder="Busca una película por título" onChange={(ev) => manejador(ev)} />
+                                    <Button style={{  backgroundColor:'black',border:"black"}} onClick={() => busquedaPorTitulo()} type="primary">Buscar</Button>
                                 </Input.Group>
-                            }
+                            } */}
                             <div className="relleno"></div>
                         </div>
                         <div className="headerSpace linksDesign">
