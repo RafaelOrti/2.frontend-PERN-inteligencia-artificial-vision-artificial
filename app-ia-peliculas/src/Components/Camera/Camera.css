@@ -1,0 +1,79 @@
+.camera {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+p.scroll_down
+{
+	font-size: 3em;
+    color: white;
+}
+.camera__wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 50em;
+  /* margin: 0 1rem 1rem; */
+  border: 3em solid rgb(2, 2, 2);
+  background-color: rgb(255, 255, 255);
+}
+
+.camera__wrapper video {
+  border: 1em solid rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  border-radius: 30000em;
+}
+
+.camera__button-container {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.camera__button--snap {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.webcam-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.webcam-overlay--hidden {
+  display: none;
+}
+
+.results__container {
+  background-color: #fff;
+  width: 140em;
+  /* padding-top: 1rem; */
+  margin-right: 1rem;
+  margin-left: 1rem;
+  height: 40em;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border-radius: 2em;
+  
+}
+
+.results__wrapper {
+  padding: 1rem 0 0 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .camera__wrapper {
+    width: 100%;
+    margin: 0 1rem 1rem;
+  }
+
+  .results__wrapper {
+    padding: 0;
+  }
+}

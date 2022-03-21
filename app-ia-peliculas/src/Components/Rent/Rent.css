@@ -1,0 +1,17 @@
+
+.designRent {
+    height: 2em;
+    width: 8em;
+    
+    border-radius: .2em;
+    background-color: aqua;
+
+    color: black;
+    
+}
+
+
+.designRent:hover{
+    background-color: bisque;
+    transform:scale(.9);
+}

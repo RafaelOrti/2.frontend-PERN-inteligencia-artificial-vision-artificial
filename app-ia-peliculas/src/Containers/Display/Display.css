@@ -1,0 +1,52 @@
+
+.designDisplay {
+
+    background-color: rgb(0, 0, 0);
+    
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+}
+
+
+.video{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index:5;
+}
+
+.cameraHidden{
+    position: absolute ;
+    z-index:-5 ;
+    box-sizing: border-box;
+    /* display: none ; */
+    /* max-width: 10vw;
+    max-height: 10vh; */
+    /* visibility: hidden !important; */
+
+    
+}
+
+.cameraHidden {
+    position: absolute ;
+    z-index:-5 ;
+    /* overflow-x:scroll;
+    overflow-y:scroll; */
+    width: 100px;
+  /* Control de la altura con base en el texto del div*/
+  height: auto;
+  word-wrap: break-word;
+    /* box-sizing: border-box;
+    /* display: none ; */
+    /* width: 10vw;
+    height: 10vh;  */
+    /* visibility: hidden !important; */
+
+    
+}

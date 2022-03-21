@@ -1,0 +1,133 @@
+
+.designProfile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    background-image: url("../../img/login.jpg");
+    width: 100vw;
+    height: 100vh;
+
+    background-size: cover;
+
+
+}
+
+.designProfileHalf {
+
+    width: 50vw;
+
+}
+
+.profileFieldButton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:2em;
+}
+
+.profileFieldButtonMessage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-top:1em; */
+}
+
+.profileRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-around;
+
+}
+
+.updateBoton {
+    height: 2em;
+    width: 8em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: lightsteelblue;
+    color: hsl(0, 0%, 30%);
+
+    border-radius: 0.2em;
+    cursor: pointer;
+
+}
+
+.updateBoton:hover {
+    color: lightsteelblue;
+    background-color: hsl(0, 0%, 30%);
+    border-radius: 0.2em;
+    
+}
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+
+
+.button {
+  position: relative;
+  padding-top: 0.8em;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  font-size: 1em;
+  font-weight: bolder;
+
+}
+.button.type3 {
+  color: #000000;
+}
+.button.type3.type3::after, .button.type3.type3::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  border: 0.5em solid;
+  transition: all 0.6s ease;
+  border-radius: 2px;
+}
+.button.type3.type3::after {
+  bottom: 0;
+  right: 0;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: #000000;
+  border-right-color: #000000;
+  border-radius: 300px;
+}
+.button.type3.type3::before {
+  top: 0;
+  left: 0;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-top-color: #000000;
+  border-left-color: #000000;
+  border-radius: 300px;
+}
+.button.type3.type3:hover:after, .button.type3.type3:hover:before {
+  border-bottom-color: #ffffff;
+  border-right-color: #ffffff;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  border-radius: 300px;
+}
+
+.input{
+    border-radius: 300px;
+    margin: 1em;
+    border: 0.5em solid #000000;
+}

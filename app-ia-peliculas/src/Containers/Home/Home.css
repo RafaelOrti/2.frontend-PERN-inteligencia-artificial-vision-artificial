@@ -1,0 +1,19 @@
+
+.designHome {
+
+    background-image: url("../../img/login.jpg");
+    width: 100vw;
+    height: 100vh;
+
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.fondo{
+    width: 100%;
+    height: 100%;
+    position:relative;
+} 

@@ -1,0 +1,99 @@
+
+.designHeaderGlobal {
+    height: 5em;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+
+    
+
+   
+}
+
+
+.designHeader {
+    height: 5em;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    background-color: transparent;
+    top: 20px;
+
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerSpace {
+    width: 32vw;
+    height: 5em;
+
+}
+
+.linksDesign {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.link {
+    margin-right: 3em;
+    margin-bottom: 1em;
+}
+
+.link:hover {
+    font-weight: bold;
+    cursor:pointer;
+}
+
+.searchDesign {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+
+}
+
+.relleno {
+    height: 1em;
+}
+
+.logoDesign{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    
+}
+
+.logo{
+    height: 4em;
+    width: 9em;
+}
+
+.logo:hover { 
+    cursor: pointer; 
+}
+
+.logoDisplay{
+    height: 4em;
+    width: 9em; 
+    display: none;
+}
+
+
+.headerSpace:hover .logoDisplay{
+
+    display: block;
+}
+
+input{
+    border-radius:"2em";
+}
+
+
