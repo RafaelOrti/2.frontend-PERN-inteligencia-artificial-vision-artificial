@@ -20,7 +20,12 @@ Esta es el frontend de una plataforma web de visualización de películas simila
 </div>
 <br/>
 
-![Software](/img/esquema.png)
+
+
+
+https://user-images.githubusercontent.com/45425367/159196827-14125151-e247-4bd7-b645-392bf64c07b7.mp4
+
+
 ## Tabla de contenidos
 * [Instalacion](#Instalación)<br>
 <!-- * [Uso de la API](#Uso-de-la-API)<br>
