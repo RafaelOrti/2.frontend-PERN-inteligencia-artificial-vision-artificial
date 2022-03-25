@@ -51,11 +51,16 @@ p.scroll_down
 
 .results__container {
   background-color: #fff;
-  width: 100%;
-  padding-top: 1rem;
-  min-height: 34em;
+  width: 140em;
+  /* padding-top: 1rem; */
+  margin-right: 1rem;
+  margin-left: 1rem;
+  height: 40em;
   display: flex;
   justify-content: center;
+  position: relative;
+  border-radius: 2em;
+  
 }
 
 .results__wrapper {

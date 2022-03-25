@@ -1,13 +1,13 @@
 
 .designRegister {
-    background-color: rgb(245, 245, 94);
-
+    background-image: url("../../img/login.jpg");
     width: 100vw;
     height: 100vh;
+    background-size: cover;
 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
 
@@ -15,10 +15,10 @@
 
 .cardRegister {
 
-    height: 40em;
+    height: 30em;
     width: 50em;
 
-    background-color: lightcoral;
+    background-color: rgb(255, 255, 255);
 
     border-radius: 4em;
 
@@ -26,23 +26,27 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-left:3em;
 }
 
 .upCardRegister {
-    height: 10em;
+    height: 4em;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 2em;
+    font-weight: bold;
 
 }
 
 .middleCardRegister {
-    height: 20em;
-
+    height: 15em;
+    margin-top: 3em;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
@@ -52,14 +56,16 @@
 }
 
 .bottomCardRegister {
-    height: 10em;
+    margin-top: 1em;
+    height: 6em;
 
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
 
 }
-
+/* 
 .botonRegistro {
 
     height: 4em;
@@ -72,11 +78,75 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
+} */
+/* 
 .botonRegistro:hover {
 
     background-color: white;
     font-weight: bold;
     cursor: pointer;
+} */
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+
+
+.button {
+  position: relative;
+  padding-top: 0.8em;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  font-size: 1em;
+  font-weight: bolder;
+
+}
+.button.type32 {
+  color: #000000;
+}
+.button.type32.type32::after, .button.type32.type32::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  border: 0.5em solid;
+  transition: all 0.6s ease;
+  border-radius: 2px;
+}
+.button.type32.type32::after {
+  bottom: 0;
+  right: 0;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: #000000;
+  border-right-color: #000000;
+  border-radius: 300px;
+}
+.button.type32.type32::before {
+  top: 0;
+  left: 0;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-top-color: #000000;
+  border-left-color: #000000;
+  border-radius: 300px;
+}
+.button.type32.type32:hover:after, .button.type32.type32:hover:before {
+  border-bottom-color: #000000;
+  border-right-color: #000000;
+  border-top-color: #000000;
+  border-left-color: #000000;
+  width: 100%;
+  height: 100%;
+  border-radius: 300px;
+}
+
+input{
+    border-radius: 300px;
+    margin: 1em;
+    border: 0.5em solid #000000;
 }

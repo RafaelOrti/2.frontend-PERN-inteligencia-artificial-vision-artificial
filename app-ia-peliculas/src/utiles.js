@@ -26,13 +26,13 @@ export const checkError = (type,value) => {
             };
 
         
-        case 'telefono':
+        // case 'telefono':
 
-            if (! /[\d()+-]/g.test(value) ) {
-                return "Introduce un telefono válido";
-            }else{
-                return "ok";
-            };
+        //     if (! /[\d()+-]/g.test(value) ) {
+        //         return "Introduce un telefono válido";
+        //     }else{
+        //         return "ok";
+        //     };
 
         default:
             return "ok";

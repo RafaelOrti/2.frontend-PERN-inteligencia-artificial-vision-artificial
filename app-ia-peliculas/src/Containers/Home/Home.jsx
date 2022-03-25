@@ -15,7 +15,7 @@ const Home = (props) => {
 
     return (
         <div className='designHome'>
-            <img className="fondo" src={require('../../img/fondo.png')} alt="fondo" ></img>
+            {/* <img className="fondo" src={require('../../img/login.jpg')} alt="fondo" ></img> */}
         </div>
     )
 

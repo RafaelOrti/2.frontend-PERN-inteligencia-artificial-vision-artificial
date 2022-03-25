@@ -15,6 +15,7 @@ import SearchResults from './Containers/SearchResults/SearchResults';
 import Film from './Containers/Film/Film';
 import Add from './Containers/Add/Add';
 import Display from './Containers/Display/Display';
+import Admin from './Containers/Admin/Admin';
 
 
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/film" element={<Film/>}/>
           <Route path="/add" element={<Add/>}/>
           <Route path="/display" element={<Display/>}/>
+          <Route path="/admin" element={<Admin/>}/>
 
         </Routes>
 
