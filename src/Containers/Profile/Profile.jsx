@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { NOT_HOME } from "../../redux/actions";
-import {raiz} from '../../utiles';
-import {MODIFY_CREDENTIALS} from '../../redux/actions';
+import { raiz } from '../../utiles';
+import { MODIFY_CREDENTIALS } from '../../redux/actions';
 import axios from 'axios';
 
 import "./Profile.css";
@@ -20,20 +20,20 @@ const Profile = (props) => {
         props.dispatch({ type: NOT_HOME })
     }, [])
 
-    
-
 
     //Hooks
     const [datosUsuario, setDatosUsuario] = useState({
-        nombre: props.credentials.usuario.nombre, apellido: props.credentials.usuario.apellido, edad: props.credentials.usuario.edad, email: props.credentials.usuario.email, 
-        nickname: props.credentials.usuario.nickname,  password: props.credentials.usuario.password
+        nombre: props.credentials.usuario.nombre, apellido: props.credentials.usuario.apellido, edad: props.credentials.usuario.edad, email: props.credentials.usuario.email,
+        nickname: props.credentials.usuario.nickname, password: props.credentials.usuario.password
     });
 
     //Handler (manejador)
     const rellenarDatos = (e) => {
         //para cambiar el hook
-        setDatosUsuario({...datosUsuario, 
-            [e.target.name]: e.target.value})
+        setDatosUsuario({
+            ...datosUsuario,
+            [e.target.name]: e.target.value
+        })
         //para cambiar el redux
         props.dispatch({ type: MODIFY_CREDENTIALS, payload: { field: e.target.name, field_value: e.target.value } })
     };
@@ -53,7 +53,7 @@ const Profile = (props) => {
             edad: parseInt(datosUsuario.edad),
             nickname: datosUsuario.nickname,
             password: datosUsuario.password
-            
+
         }
 
         let config = {
@@ -62,21 +62,10 @@ const Profile = (props) => {
 
         try {
             //Hacemos el update en la base de datos
-            let resultado = await axios.put(raiz +`usuarios/actualizar/perfilId/${props.credentials.usuario.id}`,body, config);
+            let resultado = await axios.put(raiz + `usuarios/actualizar/perfilId/${props.credentials.usuario.id}`, body, config);
             setTimeout(() => {
-                // console.log("res2")
-                // console.log(res.data)
-                setRes(resultado.data); 
+                setRes(resultado.data);
             }, 2);
-
-            // esto para ver la respeusta del put
-            // let res = await axios.put(`https://movie-db-geekshubs.herokuapp.com/usuarios/${props.credentials.usuario.id}`,body, config);
-            
-            
-            // if(res){
-            //     //Guardamos en redux
-            //     props.dispatch({type:MODIFY_CREDENTIALS, payload: datosUsuario});
-            // }
         } catch (error) {
             console.log(error)
         }
@@ -95,20 +84,18 @@ const Profile = (props) => {
                 </div>
                 <div className="profileField"><b>Edad:</b><input type="text" name="edad" id="edad" title="edad" placeholder={props.credentials.usuario.edad} autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                 </div>
-                
-                <div className="profileField"><b>Password:</b><input type="text" name="password" id="password" title="password" placeholder="*****"autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
+
+                <div className="profileField"><b>Password:</b><input type="text" name="password" id="password" title="password" placeholder="*****" autoComplete="off" onChange={(e) => { rellenarDatos(e) }} />
                 </div>
                 <div className="profileFieldButton">
-                    <div className="button type3 espacio" onClick={()=>updateUser()}>Actualiza</div>
+                    <div className="button type3 espacio" onClick={() => updateUser()}>Actualiza</div>
                 </div>
                 <div className="profileFieldButtonMessage">
-                <div className="bottomCardAdminRegPelSub">{res}</div>
+                    <div className="bottomCardAdminRegPelSub">{res}</div>
                 </div>
             </div>
         </div>
-        
     )
-
 
 }
 

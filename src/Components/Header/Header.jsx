@@ -15,29 +15,18 @@ import './Header.css';
 
 const Header = (props) => {
 
-    console.log("props.credentials?.usuario.rol")
-    console.log(props.credentials?.usuario.rol)
     let navigate = useNavigate();
-
     const [titulo, setTitulo] = useState("");
-
-    useEffect(() => {
-        // console.log("props.credentials");
-        // console.log(props.credentials);
-    })
-
     const navegar = (lugar) => {
 
         setTimeout(() => {
             navigate(lugar);
         }, 200);
-
     }
 
     const logOut = () => {
         //Borrar de RDX las credenciales
         props.dispatch({ type: LOGOUT });
-
         setTimeout(() => {
             navigate("/");
         }, 1500);
@@ -46,40 +35,29 @@ const Header = (props) => {
     const manejador = (ev) => {
         setTitulo(ev.target.value);
     }
-    // {
-    //     window.location.pathname === "/add" &&
-    //     <div className="link" onClick={() => navegar("/film")}>Film</div>
-    // }
+
     const busquedaPorTitulo = async () => {
 
         //Axios que trae resultados....
         // window.location.pathname === "/add" &&
         // <div className="link" onClick={() => navegar("/film")}>Film</div>
         try {
-            let resultados = await axios.get(raiz+`peliculas/genero/titulo/${titulo}`);
-
+            let resultados = await axios.get(raiz + `peliculas/genero/titulo/${titulo}`);
             //Guardo en redux los resultados de las películas
-
             props.dispatch({ type: MOVIES_TITLE, payload: resultados.data });
-
             setTimeout(() => {
                 navigate("/searchresults");
             }, 500);
-
-
         } catch (error) {
             console.log(error);
         }
     }
-    // console.log(window.location.pathname);
+
     if (!props.credentials?.token) {
         return (
             <div className='designHeader'>
-
                 <div className="headerSpace logoDesign">
-
                     <img className="logo" src={require('../../img/aiflix-logo.png')} alt="logo" onClick={() => navegar("/")}></img>
-
                 </div>
                 <div className="headerSpace searchDesign">
                 </div>
@@ -180,19 +158,14 @@ const Header = (props) => {
                 {
                     window.location.pathname === "/display" &&
                     (
-
                         <div className="headerSpace logoDesign">
                             <img className="logoDisplay" src={require('../../img/volver.png')} alt="logo" onClick={() => navegar("/film")}></img>
                         </div>
-
                     )
                 }
             </div>
-
         )
     }
-
-
 
 }
 

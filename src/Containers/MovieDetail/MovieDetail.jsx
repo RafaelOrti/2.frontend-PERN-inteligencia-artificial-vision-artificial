@@ -15,45 +15,33 @@ const MovieDetail = (props) => {
     let navigate = useNavigate();
 
     useEffect(() => {
-        console.log("props",props)
+        console.log("props", props)
         enviaDataSet();
         props.dispatch({ type: NOT_HOME })
     }, [])
 
     const enviaDataSet = async () => {
         try {
-            console.log(props.search)
-            console.log("props.search")
-            console.log(props.credentials?.usuario.id)
             let body = {
                 p: props.search?.id,
                 id: props.credentials?.usuario.id
             }
-            let res = await axios.post(raiz + `usuarios/dataset`, body);
-            console.log(res);
-            // setTimeout(() => {
-            //     // console.log("res2")
-            //     // console.log(res.data)
-            //     setFilmsAI(res.data);
-            // }, 2);
+            await axios.post(raiz + `usuarios/dataset`, body);
         } catch (error) {
             console.log(error);
         }
     };
 
     const navegar = (lugar) => {
-
         setTimeout(() => {
             navigate(lugar);
         }, 200);
-
     }
 
 
     useEffect(() => {
         //Compruebo si hay datos de la película escogida en redux, en caso de NO
         //haber datos, redirijo a HOME.
-
         if (props.search?.titulo === undefined) {
             navigate("/");
         }
@@ -70,7 +58,6 @@ const MovieDetail = (props) => {
                 </div>
                 <div className="seccionVer">
                     <div className="button type3 espacio" onClick={() => { navegar("/display"); }}>Ver</div>
-
                 </div>
             </div>
             <div className="filmDetailHalf">
