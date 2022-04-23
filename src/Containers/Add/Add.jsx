@@ -44,7 +44,7 @@ const Add = (props) => {
                 setAdds(res.data);
             }, 2000);
         } catch (error) {
-            res.send(error);
+            console.log(error);
         }
     };
 
