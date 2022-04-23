@@ -6,9 +6,9 @@
 ![Nodejs](https://img.shields.io/badge/redux-800080?style=for-the-badge&logo=redux)
 ![NPM](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
 
-![Sequelize](https://img.shields.io/badge/artificial_intelligence-52B0E7?style=for-the-badge&logo=&logoColor=white)
+![Sequelize](https://img.shields.io/badge/machine_learning-52B0E7?style=for-the-badge&logo=&logoColor=white)
 
-![Bcrypt](https://img.shields.io/badge/Artificial_vision-FFFF00?style=for-the-badge&logo=artificial-intelligence&logoColor=white)
+![Bcrypt](https://img.shields.io/badge/Artificial_intelligence-FFFF00?style=for-the-badge&logo=artificial-intelligence&logoColor=white)
 
 
 
@@ -20,12 +20,7 @@ Esta es el frontend de una plataforma web de visualización de películas simila
 </div>
 <br/>
 
-
-
-
-https://user-images.githubusercontent.com/45425367/159196827-14125151-e247-4bd7-b645-392bf64c07b7.mp4
-
-
+![Software](/img/esquema.png)
 ## Tabla de contenidos
 * [Instalacion](#Instalación)<br>
 <!-- * [Uso de la API](#Uso-de-la-API)<br>
@@ -59,5 +54,11 @@ https://user-images.githubusercontent.com/45425367/159196827-14125151-e247-4bd7-
     ```bash
     npm start
     ```
+
+
+## Uso de la API
+
+
+### Esquema de la base de datos
 
 
