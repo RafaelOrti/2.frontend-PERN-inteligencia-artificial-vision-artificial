@@ -20,7 +20,7 @@ Esta es el frontend de una plataforma web de visualización de películas simila
 </div>
 <br/>
 
-![Software](./img/esquema.png)
+![Software](./src/img/esquema.png)
 ## Tabla de contenidos
 * [Instalacion](#Instalación)<br>
 <!-- * [Uso de la API](#Uso-de-la-API)<br>
