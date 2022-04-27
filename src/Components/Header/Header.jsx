@@ -4,11 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { LOGOUT, MOVIES_TITLE } from '../../redux/actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import 'antd/dist/antd.css';
-import {
-    Input,
-    Button
-} from 'antd';
+// import 'antd/dist/antd.css';
+
 import { raiz } from '../../utiles';
 
 import './Header.css';

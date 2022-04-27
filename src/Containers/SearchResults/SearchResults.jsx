@@ -1,12 +1,11 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+
 import { connect } from 'react-redux';
 import { MOVIE_DETAIL } from '../../redux/actions';
 import { NOT_HOME } from "../../redux/actions";
 
-import { raiz } from '../../utiles';
 import './SearchResults.css';
 
 const SearchResults = (props) => {

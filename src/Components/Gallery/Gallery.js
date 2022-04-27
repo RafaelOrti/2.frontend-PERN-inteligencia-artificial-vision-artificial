@@ -3,7 +3,7 @@ import classnames from "classnames";
 import SelectedImage from "../SelectedImage/SelectedImage";
 
 import "./Gallery.css";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+// import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Gallery = props => {
   const [selected, setSelected] = useState(props.selected);
@@ -39,12 +39,12 @@ const Gallery = props => {
                       photo === selected && "gallery__photo--selected"
                     )}
                   />
-                  <FontAwesomeIcon
+                  {/* <FontAwesomeIcon
                     icon="times-circle"
                     size="sm"
                     className="gallery__photo-delete"
                     onClick={() => props.deleteImage(photo)}
-                  />
+                  /> */}
                 </div>
               ))}
             </div>

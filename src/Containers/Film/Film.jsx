@@ -8,7 +8,7 @@ import { NOT_HOME } from "../../redux/actions";
 
 import { raiz } from '../../utiles';
 import './Film.css';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 
 import { loadModels } from '../../helpers/faceApi';
 import { createFaLibrary } from '../../helpers/icons';
