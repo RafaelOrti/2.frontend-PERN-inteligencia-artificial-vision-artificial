@@ -7,13 +7,13 @@ import { connect } from "react-redux";
 import { IS_HOME } from "../../redux/actions";
 
 import { loadModels } from '../../helpers/faceApi';
-import { createFaLibrary } from '../../helpers/icons';
+// import { createFaLibrary } from '../../helpers/icons';
 
 // import 'antd/dist/antd.css';
 import Camera from '../../Components/Camera/Camera';
 
 import './Display.css';
-createFaLibrary();
+// createFaLibrary();
 loadModels();
 
 let a = 0;

@@ -11,11 +11,11 @@ import './Film.css';
 // import 'antd/dist/antd.css';
 
 import { loadModels } from '../../helpers/faceApi';
-import { createFaLibrary } from '../../helpers/icons';
+// import { createFaLibrary } from '../../helpers/icons';
 
 import Camera from '../../Components/Camera/Camera';
 
-createFaLibrary();
+// createFaLibrary();
 loadModels();
 
 let a = 0;
