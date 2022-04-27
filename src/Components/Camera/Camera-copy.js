@@ -9,7 +9,7 @@ import Results from '../Results/Results';
 import Webcam from 'react-webcam';
 
 import './Camera.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 const Camera = ({ photoMode }) => {
   const camera = useRef();

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Spinner from '../Spinner/Spinner';
 
 import { mapExpressionToEmoji } from '../../helpers/emojis';
@@ -35,8 +35,8 @@ const Results = ({ results, processing }) => {
                   
                 </div>
                 
-                <FontAwesomeIcon icon={mapExpressionToEmoji(result.expressions.asSortedArray()[0].expression)} size="8x" />
-                <FontAwesomeIcon icon={mapExpressionToEmoji(result.gender)} size="8x" />
+                {/* <FontAwesomeIcon icon={mapExpressionToEmoji(result.expressions.asSortedArray()[0].expression)} size="8x" />
+                <FontAwesomeIcon icon={mapExpressionToEmoji(result.gender)} size="8x" /> */}
                 
               </div>
               
@@ -139,14 +139,14 @@ const Results = ({ results, processing }) => {
                   {/* <div className="barraResults" style={{width:results[0].gender.expressions.angry}}></div> */}
                 </div>
                 <div className="results__emoji">
-                  <FontAwesomeIcon icon={mapExpressionToEmoji(results[0].expressions.asSortedArray()[0].expression)} color="blue" size="8x" />
+                  {/* <FontAwesomeIcon icon={mapExpressionToEmoji(results[0].expressions.asSortedArray()[0].expression)} color="blue" size="8x" />
                   <br />
                   {results[0].gender==="male" &&
                   <FontAwesomeIcon icon={mapExpressionToEmoji(results[0].gender)} color="blue" size="8x" />
                   }
                   {results[0].gender==="female" &&
                   <FontAwesomeIcon icon={mapExpressionToEmoji(results[0].gender)} color="pink" size="8x" />
-                  }
+                  } */}
                 </div>
             </div>
             <div className="results__wrapper__bar0">

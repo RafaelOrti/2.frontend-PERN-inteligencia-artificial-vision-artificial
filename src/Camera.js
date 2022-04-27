@@ -9,7 +9,7 @@ import Results from '../Results/Results';
 import Webcam from 'react-webcam';
 
 import './Camera.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Camera = ({ photoMode }) => {
   const camera = useRef();
@@ -80,7 +80,7 @@ const Camera = ({ photoMode }) => {
           <div className="camera__button-container">
             {photos.length > 0 && <Button onClick={toggleGallery}>{showGallery ? 'Hide ' : 'Show '} Gallery</Button>}
             <Button onClick={capture} className="camera__button--snap">
-              <FontAwesomeIcon icon="camera" size="lg" />
+              {/* <FontAwesomeIcon icon="camera" size="lg" /> */}
             </Button>
             {photos.length > 0 && <Button onClick={reset}>Reset</Button>}
           </div>

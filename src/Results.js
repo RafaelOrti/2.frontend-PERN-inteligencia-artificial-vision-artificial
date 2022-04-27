@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Spinner from '../Spinner/Spinner';
 
 import { mapExpressionToEmoji } from '../../helpers/emojis';
@@ -25,8 +25,8 @@ const Results = ({ results, processing }) => {
                     {Math.round(result.age)}
                   </p>
                 </div>
-                <FontAwesomeIcon icon={mapExpressionToEmoji(result.expressions.asSortedArray()[0].expression)} size="4x" />
-                <FontAwesomeIcon icon={mapExpressionToEmoji(result.gender)} size="4x" />
+                {/* <FontAwesomeIcon icon={mapExpressionToEmoji(result.expressions.asSortedArray()[0].expression)} size="4x" />
+                <FontAwesomeIcon icon={mapExpressionToEmoji(result.gender)} size="4x" /> */}
               </div>
             ))}
           </div>
@@ -39,8 +39,8 @@ const Results = ({ results, processing }) => {
               <p>I think you are a {results[0].gender}</p>
             </div>
             <div className="results__emoji">
-              <FontAwesomeIcon icon={mapExpressionToEmoji(results[0].expressions.asSortedArray()[0].expression)} size="4x" />
-              <FontAwesomeIcon icon={mapExpressionToEmoji(results[0].gender)} size="4x" />
+              {/* <FontAwesomeIcon icon={mapExpressionToEmoji(results[0].expressions.asSortedArray()[0].expression)} size="4x" />
+              <FontAwesomeIcon icon={mapExpressionToEmoji(results[0].gender)} size="4x" /> */}
             </div>
           </div>
         )}
