@@ -20,7 +20,9 @@ Esta es el frontend de una plataforma web de visualización de películas simila
 </div>
 <br/>
 
-![Software](/img/esquema.png)
+
+https://user-images.githubusercontent.com/45425367/164990917-79e1081e-7fd4-4cbb-a402-d34c50e6987a.mp4
+
 ## Tabla de contenidos
 * [Instalacion](#Instalación)<br>
 <!-- * [Uso de la API](#Uso-de-la-API)<br>
@@ -56,9 +58,5 @@ Esta es el frontend de una plataforma web de visualización de películas simila
     ```
 
 
-## Uso de la API
-
-
-### Esquema de la base de datos
 
 
