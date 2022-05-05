@@ -1,5 +1,5 @@
 
-export const raiz = "https://av-ai-app-films.herokuapp.com/";
+export const raiz = "http://localhost:3000/";
 
 
 export const checkError = (type,value) => {
