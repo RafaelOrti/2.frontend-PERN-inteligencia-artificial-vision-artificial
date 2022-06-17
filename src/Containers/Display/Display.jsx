@@ -1,70 +1,69 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { raiz } from '../../utiles';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { raiz } from '../../utiles'
+import axios from 'axios'
 import ReactPlayer from 'react-player'
-import { connect } from "react-redux";
-import { IS_HOME } from "../../redux/actions";
-
-import { loadModels } from '../../helpers/faceApi';
-import { createFaLibrary } from '../../helpers/icons';
-
+import { connect } from 'react-redux'
+import { IS_HOME } from '../../redux/actions'
+import { loadModels } from '../../helpers/faceApi'
+// import { createFaLibrary } from '../../helpers/icons'
 // import 'antd/dist/antd.css';
-import Camera from '../../Components/Camera/Camera';
+import Camera from '../../Components/Camera/Camera'
+import './Display.css'
+// createFaLibrary();
+loadModels()
 
-import './Display.css';
-createFaLibrary();
-loadModels();
-
-let a = 0;
+let a = 0
 const Display = (props) => {
-    const playerRef = React.useRef();
+  const navigate = useNavigate()
+  const playerRef = React.useRef()
+  let body
+  const [filmsAV, setFilmsAV] = useState('')
 
-    let body;
-    const [filmsAV, setFilmsAV] = useState("");
+  useEffect(() => {
+    props.dispatch({ type: IS_HOME })
+  }, [])
 
-    useEffect(() => {
-        props.dispatch({ type: IS_HOME })
-    }, [])
+  const grabaPelisAV = async (emotion) => {
+    try {
+      body = {
+        angry: emotion.angry,
+        disgusted: emotion.disgusted,
+        fearful: emotion.fearful,
+        happy: emotion.happy,
+        neutral: emotion.neutral,
+        sad: emotion.sad,
+        surprised: emotion.surprised,
+        id: props.search?.id
+      }
 
-    const grabaPelisAV = async (emotion) => {
-        try {
-            body = {
-                angry: emotion.angry,
-                disgusted: emotion.disgusted,
-                fearful: emotion.fearful,
-                happy: emotion.happy,
-                neutral: emotion.neutral,
-                sad: emotion.sad,
-                surprised: emotion.surprised,
-                id: props.search?.id
-            }
+      const res = await axios.post(raiz + 'peliculas/av', body)
+      setTimeout(() => {
+        setFilmsAV(res.data)
+      }, 2)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
-            let res = await axios.post(raiz + `peliculas/av`, body);
-            setTimeout(() => {
-                console.log("identificacion de av")
-                console.log(res.data)
-                setFilmsAV(res.data);
-            }, 2);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+  setTimeout(() => {
+    a++
+    if (a === 4) {
+      a = 0
+      grabaPelisAV(props.emotions?.emotion)
+    }
+  }, 50)
 
-    setTimeout(() => {
-        a++;
-        console.log(a);
-        if (a === 4) {
-            a = 0;
-            grabaPelisAV(props.emotions?.emotion);
-        }
-    }, 50)
+  const redirect = () => {
+    // Redirigimos a movieDetail con navigate
+    navigate('/film')
+  }
 
-    return (
-        // <></> componente vacio que no tiene nada y le puedes intercalar {} para poner la condicion
-        <div className='designDisplay'>
+  return (
+  // <></> componente vacio que no tiene nada y le puedes intercalar {} para poner la condicion
+    <div className='designDisplay'>
 
-            {/* <YouTube
+      {/* <YouTube
             showCaptions={false}
             controls
             annotations={false}
@@ -72,34 +71,36 @@ const Display = (props) => {
             autoplay
             /> */}
 
+      <ReactPlayer
+        ref={playerRef}
+        url={props.search?.video}
+        className='react-player'
+        playing
+        controls
+        width='100%'
+        height='100%'
+        position='absolute'
+        z-index='10'
+      />
 
-            <ReactPlayer
-                ref={playerRef}
-                url={props.search?.video}
-                className='react-player'
-                playing
-                controls
-                width='100%'
-                height='100%'
-                position='absolute'
-                z-index='10'
-            />
+      <div className='cameraHidden'>
+        <Camera
+          mode={false} width='10em'
+          height='10em'
+        />
+      </div>
 
-            <div className="cameraHidden">
-                <Camera mode={false} width='10em'
-                    height='10em' />
-            </div>
-            {/* <button onClick={() => {
-  	    console.log(Math.round(playerRef.current.getCurrentTime()));}}></button> */}
-        </div>
-    )
+      {filmsAV}
 
+      <button onClick={redirect}>Volver</button>
+
+    </div>
+  )
 }
 
 export default connect((state) => ({
 
-    search: state.search.film,
-    emotions: state.emotions
-}))(Display);
-//para enviar datos para recibir y enviar el otro en caso de nada el simple
-
+  search: state.search.film,
+  emotions: state.emotions
+}))(Display)
+// para enviar datos para recibir y enviar el otro en caso de nada el simple

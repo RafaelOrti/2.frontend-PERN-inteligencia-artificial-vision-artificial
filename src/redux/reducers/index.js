@@ -1,17 +1,17 @@
 import {
-    combineReducers
-} from 'redux';
+  combineReducers
+} from 'redux'
 
-import credentials from './datosLogin.reducer';
-import search from './busquedaFilms.reducer';
-import hideFooter from './hideFooter.reducer';
-import emotions from './emociones.reducer';
+import credentials from './datosLogin.reducer'
+import search from './busquedaFilms.reducer'
+import hideFooter from './hideFooter.reducer'
+import emotions from './emociones.reducer'
 
 const rootReducer = combineReducers({
-    credentials,
-    search,
-    hideFooter,
-    emotions
-});
+  credentials,
+  search,
+  hideFooter,
+  emotions
+})
 
-export default rootReducer;
+export default rootReducer

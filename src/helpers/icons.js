@@ -17,8 +17,8 @@
 
 // export const createFaLibrary = () => {
 //   library.add(
-//     faVideo, 
-//     faCamera, 
+//     faVideo,
+//     faCamera,
 //     faSpinner,
 //     faAngry,
 //     faGrinTongueSquint,

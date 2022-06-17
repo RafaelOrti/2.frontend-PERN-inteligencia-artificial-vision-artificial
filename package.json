@@ -9,6 +9,7 @@
     "@u-wave/react-youtube": "0.7.2",
     "axios": "0.26.0",
     "classnames": "^2.3.1",
+    "eslint": "8.17.0",
     "face-api.js": "0.22.2",
     "react": "17.0.2",
     "react-audio-player": "0.17.0",
@@ -26,7 +27,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "standard && node my-tests.js",
+    "lint": "standard",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -49,5 +51,16 @@
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"
+  },
+  "devDependencies": {
+    "standard": "17.0.0"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "project": "./config.json"
+    },
+    "extends": [
+      "./node_modules/standard/eslintrc.json"
+    ]
   }
 }
