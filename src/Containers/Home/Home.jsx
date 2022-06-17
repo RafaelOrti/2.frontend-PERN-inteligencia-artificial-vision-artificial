@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { NOT_HOME } from "../../redux/actions";
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { NOT_HOME } from '../../redux/actions'
 
-
-import './Home.css';
+import './Home.css'
 
 const Home = (props) => {
+  useEffect(() => {
+    props.dispatch({ type: NOT_HOME })
+  }, [])
 
-    useEffect(() => {
-        props.dispatch({ type: NOT_HOME })
-    }, [])
-
-    return (
-        <div className='designHome'>
-            {/* <img className="fondo" src={require('../../img/login.jpg')} alt="fondo" ></img> */}
-        </div>
-    )
+  return (
+    <div className='designHome'>
+      {/* <img className="fondo" src={require('../../img/login.jpg')} alt="fondo" ></img> */}
+    </div>
+  )
 }
 
-export default connect()(Home);
+export default connect()(Home)

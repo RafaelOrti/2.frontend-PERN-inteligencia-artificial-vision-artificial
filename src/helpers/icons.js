@@ -1,4 +1,4 @@
-import {library} from "@fortawesome/fontawesome-svg-core";
+import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faVideo,
   faCamera,
@@ -13,7 +13,7 @@ import {
   faMale,
   faFemale,
   faTimesCircle
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons'
 
 export const createFaLibrary = () => {
   library.add(
@@ -30,5 +30,5 @@ export const createFaLibrary = () => {
     faMale,
     faFemale,
     faTimesCircle
-  );
-};
+  )
+}
