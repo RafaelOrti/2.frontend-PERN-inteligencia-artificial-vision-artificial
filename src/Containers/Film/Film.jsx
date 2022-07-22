@@ -6,13 +6,13 @@ import { MOVIE_DETAIL, NOT_HOME } from '../../redux/actions'
 import { connect } from 'react-redux'
 import { raiz } from '../../utiles'
 import './Film.css'
-import 'antd/dist/antd.css'
+// import 'antd/dist/antd.css'
 import { loadModels } from '../../helpers/faceApi'
 import { createFaLibrary } from '../../helpers/icons'
 import Camera from '../../Components/Camera/Camera'
 
-createFaLibrary()
-loadModels()
+// createFaLibrary()
+// loadModels()
 
 let a = 0
 const Film = (props) => {
@@ -44,7 +44,7 @@ const Film = (props) => {
   // llamada directa a backend
   const traePelis = async () => {
     try {
-      const res = await axios.get(raiz + 'peliculas/', { headers: { Authorization: `Bearer ${props.credentials?.token}` } })
+      const res = await axios.get(raiz + 'peliculas/er', { headers: { Authorization: `Bearer ${props.credentials?.token}` } })
       setTimeout(() => {
         setFilms(res.data)
       }, 500)
@@ -248,7 +248,7 @@ const Film = (props) => {
             <p className='pFilm'>Todas las películas</p>
           </div>
           <div className='container'>
-            <div className='link flechaI' onClick={() => atrasarPeliculas(ai)} />
+            {/* <div className='link flechaI' onClick={() => atrasarPeliculas(ai)} /> */}
             {
               films.slice(ai, ai + 10).map(pelicula => {
                 return (
@@ -259,7 +259,7 @@ const Film = (props) => {
                 )
               })
             }
-            <div className='link flechaD' onClick={() => avanzarPeliculas(ai)} />
+            {/* <div className='link flechaD' onClick={() => avanzarPeliculas(ai)} /> */}
           </div>
           <div className='divPFilm'>
             <p className='pFilm'>Películas de terror</p>

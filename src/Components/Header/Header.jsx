@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { LOGOUT } from '../../redux/actions'
 import { connect } from 'react-redux'
 // import axios from 'axios'
-import 'antd/dist/antd.css'
+// import 'antd/dist/antd.css'
 // import {
 //   Input,
 //   Button

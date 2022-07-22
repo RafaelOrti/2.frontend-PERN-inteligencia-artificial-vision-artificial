@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import { raiz } from '../../utiles'
 import './Add.css'
 // import { Card } from 'antd'
-import 'antd/dist/antd.css'
+// import 'antd/dist/antd.css'
 
 const Add = (props) => {
   const [Adds, setAdds] = useState([])

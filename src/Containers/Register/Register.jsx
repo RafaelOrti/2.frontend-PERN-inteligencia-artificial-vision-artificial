@@ -88,7 +88,8 @@ const Register = (props) => {
     // 3 envio de axios
 
     try {
-      await axios.post(raiz + 'usuarios/registro', body)
+      const a = await axios.post(raiz + 'usuarios/registro', body)
+      console.log(a)
       setTimeout(() => {
         navigate('/login')
       }, 1000)
